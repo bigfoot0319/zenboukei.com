@@ -42,17 +42,19 @@
               800: '#005f8c',
               900: '#023e58',
             },
-            /* アクセントカラー - オレンジ（信頼性・温かみ） */
+            /* アクセントカラー - スカイブルー（爽やか・清潔感） */
             accent: {
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
             },
-            /* ダークカラー - 深いネイビー */
+            /* ダークカラー - 明るめのネイビー */
             dark: {
-              800: '#1e3a4f',
-              900: '#0f2937',
-              950: '#0a1f2c',
+              700: '#1e40af',
+              800: '#1e3a5f',
+              900: '#1e3a8a',
+              950: '#172554',
             }
           },
           fontFamily: {
@@ -122,9 +124,9 @@
       opacity: 1;
     }
 
-    /* ヒーローグラデーションオーバーレイ - ブランドカラー */
+    /* ヒーローグラデーションオーバーレイ - 明るめ */
     .hero-overlay {
-      background: linear-gradient(135deg, rgba(15, 41, 55, 0.85) 0%, rgba(0, 150, 199, 0.6) 100%);
+      background: linear-gradient(135deg, rgba(30, 58, 95, 0.5) 0%, rgba(14, 165, 233, 0.3) 100%);
     }
   </style>
 </head>
@@ -195,25 +197,27 @@
     <!-- オーバーレイ -->
     <div class="absolute inset-0 hero-overlay"></div>
 
-    <!-- コンテンツ -->
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <p class="text-accent-400 text-sm sm:text-base font-medium tracking-wider mb-4 animate__animated animate__fadeInDown">
-        一般社団法人 全国防犯啓蒙推進機構
-      </p>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate__animated animate__fadeInUp">
-        犯罪者の視点で考え、命を守る。<br>
-        <span class="text-accent-400">その先の、本当の安心へ</span>
-      </h1>
-      <p class="text-gray-200 text-base sm:text-lg md:text-xl mb-10 animate__animated animate__fadeInUp animate__delay-1s">
-        1,000人の犯罪者の本音を熟知した<br class="sm:hidden">防犯専門家・折元洋巳
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeInUp animate__delay-1s">
-        <a href="#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg">
-          お問い合わせ
-        </a>
-        <a href="#services" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300">
-          サービスを見る
-        </a>
+    <!-- コンテンツ - 右側配置 -->
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-end">
+      <div class="text-right max-w-xl lg:max-w-2xl">
+        <p class="text-accent-400 text-xs sm:text-sm font-medium tracking-wider mb-3 animate__animated animate__fadeInDown">
+          一般社団法人 全国防犯啓蒙推進機構
+        </p>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 animate__animated animate__fadeInUp">
+          犯罪者の視点で考え、<br>命を守る。<br>
+          <span class="text-accent-400">その先の、本当の安心へ</span>
+        </h1>
+        <p class="text-gray-200 text-sm sm:text-base md:text-lg mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+          1,000人の犯罪者の本音を熟知した<br>防犯専門家・折元洋巳
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-end animate__animated animate__fadeInUp animate__delay-1s">
+          <a href="#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+            お問い合わせ
+          </a>
+          <a href="#services" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-full font-medium transition-all duration-300">
+            サービスを見る
+          </a>
+        </div>
       </div>
     </div>
 
@@ -305,62 +309,62 @@
   <!-- ======================================
        3. 全防啓とは
   ======================================= -->
-  <section id="organization" class="py-20 md:py-32 bg-dark-900 text-white">
+  <section id="organization" class="py-20 md:py-32 bg-primary-50 text-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" data-aos="fade-up">
-        <p class="text-accent-400 font-medium mb-2">ORGANIZATION</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">全防啓とは</h2>
-        <p class="text-gray-300 max-w-2xl mx-auto">
+        <p class="text-primary-500 font-medium mb-2">ORGANIZATION</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">全防啓とは</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
           一般社団法人 全国防犯啓蒙推進機構
         </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-16">
         <!-- コンセプト -->
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4">コンセプト</h3>
-          <p class="text-2xl font-bold text-accent-400 mb-4">「安全と安心」を<br>社会に拡げる</p>
-          <p class="text-gray-300 text-sm">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">コンセプト</h3>
+          <p class="text-2xl font-bold text-primary-500 mb-4">「安全と安心」を<br>社会に拡げる</p>
+          <p class="text-gray-600 text-sm">
             犯罪は未然に防ぐべきという信念のもと、防犯啓蒙活動を展開しています。
           </p>
         </div>
 
         <!-- ハイブリッド型防犯 -->
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="combine" class="w-8 h-8 text-white"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4">ハイブリッド型防犯</h3>
-          <p class="text-gray-300 mb-4">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">ハイブリッド型防犯</h3>
+          <p class="text-gray-600 mb-4">
             警察時代の知識と防犯機器の専門知識を組み合わせた独自のアプローチ
           </p>
           <div class="flex items-center justify-center gap-4 text-sm">
-            <span class="bg-dark-800 px-3 py-1 rounded-full">警察知識</span>
-            <span class="text-primary-400">×</span>
-            <span class="bg-dark-800 px-3 py-1 rounded-full">防犯機器</span>
+            <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full">警察知識</span>
+            <span class="text-primary-500 font-bold">×</span>
+            <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full">防犯機器</span>
           </div>
         </div>
 
         <!-- 設立情報 -->
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4">団体情報</h3>
-          <ul class="text-left text-gray-300 space-y-2 text-sm">
-            <li><span class="text-gray-400">設立：</span>2012年11月14日</li>
-            <li><span class="text-gray-400">理事長：</span>折元 洋巳</li>
-            <li><span class="text-gray-400">顧問：</span>佐藤 正久（参議院議員）</li>
-            <li><span class="text-gray-400">所在地：</span>大阪府高槻市</li>
+          <h3 class="text-xl font-bold text-gray-800 mb-4">団体情報</h3>
+          <ul class="text-left text-gray-600 space-y-2 text-sm">
+            <li><span class="text-gray-500">設立：</span>2012年11月14日</li>
+            <li><span class="text-gray-500">理事長：</span>折元 洋巳</li>
+            <li><span class="text-gray-500">顧問：</span>佐藤 正久（参議院議員）</li>
+            <li><span class="text-gray-500">所在地：</span>大阪府高槻市</li>
           </ul>
         </div>
       </div>
 
       <div class="text-center" data-aos="fade-up">
-        <button id="org-modal-btn" class="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium transition-colors">
+        <button id="org-modal-btn" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors">
           <span>団体概要の詳細を見る</span>
           <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
         </button>
@@ -555,36 +559,36 @@
   <!-- ======================================
        6. お問い合わせ
   ======================================= -->
-  <section id="contact" class="py-20 md:py-32 bg-dark-900 text-white">
+  <section id="contact" class="py-20 md:py-32 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div data-aos="fade-up">
-        <p class="text-accent-400 font-medium mb-2">CONTACT</p>
+        <p class="text-primary-100 font-medium mb-2">CONTACT</p>
         <h2 class="text-3xl md:text-4xl font-bold mb-6">お問い合わせ</h2>
-        <p class="text-gray-300 mb-10 max-w-2xl mx-auto">
+        <p class="text-primary-100 mb-10 max-w-2xl mx-auto">
           講演依頼、防犯診断、製品に関するご相談など、<br class="hidden sm:inline">お気軽にお問い合わせください。
         </p>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-6 mb-12" data-aos="fade-up" data-aos-delay="100">
         <!-- 電話 -->
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-8">
-          <div class="w-14 h-14 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="phone" class="w-7 h-7 text-white"></i>
+        <div class="bg-white/20 backdrop-blur rounded-2xl p-8">
+          <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="phone" class="w-7 h-7 text-primary-600"></i>
           </div>
-          <p class="text-sm text-gray-400 mb-2">お電話でのお問い合わせ</p>
-          <a href="tel:072-673-1192" class="text-2xl font-bold text-white hover:text-accent-400 transition-colors">
+          <p class="text-sm text-primary-100 mb-2">お電話でのお問い合わせ</p>
+          <a href="tel:072-673-1192" class="text-2xl font-bold text-white hover:text-primary-200 transition-colors">
             072-673-1192
           </a>
-          <p class="text-xs text-gray-400 mt-2">平日 9:00〜18:00</p>
+          <p class="text-xs text-primary-200 mt-2">平日 9:00〜18:00</p>
         </div>
 
         <!-- メール -->
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-8">
-          <div class="w-14 h-14 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="mail" class="w-7 h-7 text-white"></i>
+        <div class="bg-white/20 backdrop-blur rounded-2xl p-8">
+          <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="mail" class="w-7 h-7 text-primary-600"></i>
           </div>
-          <p class="text-sm text-gray-400 mb-2">メールでのお問い合わせ</p>
-          <a href="mailto:moshimoshi@zenboukei.online" class="text-lg font-bold text-white hover:text-accent-400 transition-colors break-all">
+          <p class="text-sm text-primary-100 mb-2">メールでのお問い合わせ</p>
+          <a href="mailto:moshimoshi@zenboukei.online" class="text-lg font-bold text-white hover:text-primary-200 transition-colors break-all">
             moshimoshi@zenboukei.online
           </a>
           <p class="text-xs text-gray-400 mt-2">24時間受付</p>
