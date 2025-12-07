@@ -238,15 +238,15 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
         <!-- 画像 -->
-        <div class="relative">
+        <div class="relative max-w-sm mx-auto md:mx-0">
           <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-            <!-- 折元洋巳の写真（プレースホルダー） -->
-            <div class="w-full h-full bg-gradient-to-br from-primary-700 to-primary-900 flex items-center justify-center">
-              <div class="text-center text-white p-8">
-                <i data-lucide="user" class="w-24 h-24 mx-auto mb-4 opacity-50"></i>
-                <p class="text-sm opacity-70">折元洋巳の写真<br>（要：画像提供）</p>
-              </div>
-            </div>
+            <img
+              src="/assets/images/orimoto-hiromi.jpg"
+              alt="折元洋巳 - 防犯専門家・全防啓代表理事"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
           <!-- 装飾 -->
           <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-400/30 rounded-2xl -z-10"></div>
@@ -403,21 +403,6 @@
           </span>
         </a>
 
-        <!-- 防犯診断・相談 -->
-        <a href="https://consultation.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
-            <i data-lucide="search" class="w-7 h-7 text-white"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary-900 mb-3">防犯診断・相談</h3>
-          <p class="text-gray-600 mb-4">
-            犯罪者の視点で住宅やオフィスの防犯状況を診断。リモート診断にも対応しています。
-          </p>
-          <span class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700">
-            詳しく見る
-            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
-          </span>
-        </a>
-
         <!-- 製品・サービス -->
         <a href="https://products.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
@@ -425,7 +410,22 @@
           </div>
           <h3 class="text-xl font-bold text-primary-900 mb-3">製品・サービス</h3>
           <p class="text-gray-600 mb-4">
-            デジタルキー、防犯フィルム、監視カメラ、AIシステムなど、月額サブスクでご提供。
+            デジタルキー、防犯フィルム、監視カメラ、AIシステム。犯罪者が本当に嫌がる製品を組み合わせ、住宅からオフィス・大規模施設まで対応。
+          </p>
+          <span class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700">
+            詳しく見る
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+
+        <!-- 防犯相談 -->
+        <a href="https://consultation.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">防犯相談</h3>
+          <p class="text-gray-600 mb-4">
+            家族、従業員、農作物、商品——大切なものは人それぞれ。犯罪者の視点で、あらゆる空間の防犯を診断します。
           </p>
           <span class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700">
             詳しく見る
@@ -448,12 +448,12 @@
           </span>
         </a>
 
-        <!-- 更新情報・ブログ -->
+        <!-- コラム -->
         <a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="file-text" class="w-7 h-7 text-white"></i>
           </div>
-          <h3 class="text-xl font-bold text-primary-900 mb-3">更新情報・コラム</h3>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">コラム</h3>
           <p class="text-gray-600 mb-4">
             最新の防犯情報や折元洋巳のコラムを配信中。メールで最新情報をお届けします。
           </p>
@@ -462,21 +462,6 @@
             <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
           </span>
         </a>
-
-        <!-- 滑り止め施工（追加サービス） -->
-        <div class="group block bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl p-8 transition-all duration-300">
-          <div class="w-14 h-14 bg-accent-500 rounded-xl flex items-center justify-center mb-6">
-            <i data-lucide="footprints" class="w-7 h-7 text-white"></i>
-          </div>
-          <h3 class="text-xl font-bold text-primary-900 mb-3">滑り止め施工</h3>
-          <p class="text-gray-600 mb-4">
-            3,000件以上の施工実績。鏡面タイルでも光沢を損なわず防滑効果を実現します。
-          </p>
-          <span class="inline-flex items-center text-primary-600 font-medium">
-            <i data-lucide="badge-check" class="w-4 h-4 mr-2"></i>
-            3,000件以上の実績
-          </span>
-        </div>
       </div>
     </div>
   </section>
@@ -536,21 +521,21 @@
           著書
         </h3>
         <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-          <div class="text-center">
-            <div class="w-32 h-44 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
-              <i data-lucide="book-open" class="w-12 h-12 text-primary-400"></i>
+          <a href="https://www.amazon.co.jp/dp/B0DTJH85K1" target="_blank" rel="noopener noreferrer" class="text-center block hover:opacity-80 transition-opacity">
+            <div class="w-32 h-44 rounded-lg mx-auto mb-4 overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <img src="/assets/images/book-ryuchijo-nikki.jpg" alt="留置場日記 表紙" class="w-full h-full object-contain" loading="lazy" decoding="async">
             </div>
             <p class="font-bold text-primary-900">留置場日記</p>
             <p class="text-sm text-gray-600">1,000人の犯罪者が教えてくれた本当の話</p>
             <p class="text-xs text-primary-500 mt-1">Amazonベストセラー1位</p>
-          </div>
-          <div class="text-center">
-            <div class="w-32 h-44 bg-gradient-to-br from-accent-100 to-accent-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
-              <i data-lucide="heart" class="w-12 h-12 text-primary-300"></i>
+          </a>
+          <a href="https://www.amazon.co.jp/dp/B0D1VCJX6N" target="_blank" rel="noopener noreferrer" class="text-center block hover:opacity-80 transition-opacity">
+            <div class="w-32 h-44 rounded-lg mx-auto mb-4 overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+              <img src="/assets/images/book-gan-battle.jpg" alt="がんとの壮絶バトル13回 表紙" class="w-full h-full object-contain" loading="lazy" decoding="async">
             </div>
             <p class="font-bold text-primary-900">がんとの壮絶バトル13回</p>
             <p class="text-sm text-gray-600">絶望からの大逆転や!</p>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -596,13 +581,70 @@
         </div>
       </div>
 
-      <!-- CTA -->
-      <div>
-        <a href="mailto:moshimoshi@zenboukei.online?subject=お問い合わせ" class="inline-flex items-center bg-white hover:bg-accent-50 text-accent-600 px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+      <!-- 問い合わせフォーム -->
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" class="bg-white/20 backdrop-blur rounded-2xl p-8 text-left max-w-xl mx-auto">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="subject" value="【全防啓】お問い合わせがありました">
+        <p class="hidden">
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-white mb-2">
+            お名前 <span class="text-accent-200">*</span>
+          </label>
+          <input type="text" name="name" required
+            class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+            placeholder="山田 太郎">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-white mb-2">
+            メールアドレス <span class="text-accent-200">*</span>
+          </label>
+          <input type="email" name="email" required
+            class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+            placeholder="example@email.com">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-white mb-2">
+            電話番号
+          </label>
+          <input type="tel" name="phone"
+            class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+            placeholder="090-1234-5678">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-white mb-2">
+            お問い合わせ種別
+          </label>
+          <select name="type"
+            class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
+            <option value="">選択してください</option>
+            <option value="lecture">講演・セミナー依頼</option>
+            <option value="diagnosis">防犯診断のご相談</option>
+            <option value="product">製品に関するご質問</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-white mb-2">
+            お問い合わせ内容 <span class="text-accent-200">*</span>
+          </label>
+          <textarea name="message" rows="5" required
+            class="w-full px-4 py-3 rounded-lg bg-white/90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white resize-none"
+            placeholder="お問い合わせ内容をご記入ください"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full inline-flex items-center justify-center bg-white hover:bg-accent-50 text-accent-600 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg">
           <i data-lucide="send" class="w-5 h-5 mr-3"></i>
-          メールで問い合わせる
-        </a>
-      </div>
+          送信する
+        </button>
+      </form>
     </div>
   </section>
 
@@ -615,8 +657,7 @@
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <!-- 団体情報 -->
         <div>
-          <p class="text-white font-bold text-xl mb-4">全防啓</p>
-          <p class="text-sm mb-4">一般社団法人 全国防犯啓蒙推進機構</p>
+          <p class="text-white font-bold text-lg mb-4">一般社団法人 全国防犯啓蒙推進機構</p>
           <address class="not-italic text-sm space-y-2">
             <p>〒569-0086</p>
             <p>大阪府高槻市松原町2番6号<br>高槻英和ビル2階</p>
@@ -649,8 +690,8 @@
             </a>
           </div>
           <ul class="space-y-2 text-sm">
-            <li><a href="/privacy" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
-            <li><a href="/legal" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+            <li><a href="/privacy.html" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+            <li><a href="/legal.html" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
           </ul>
         </div>
       </div>

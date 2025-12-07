@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>送信完了｜全防啓</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#00b4d8',
+              600: '#0096c7',
+              700: '#0077b6',
+              900: '#023e58',
+            },
+            accent: {
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50 min-h-screen flex items-center justify-center">
+  <div class="max-w-lg mx-auto px-4 py-16 text-center">
+    <div class="bg-white rounded-2xl shadow-lg p-10">
+      <!-- アイコン -->
+      <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i data-lucide="check-circle" class="w-10 h-10 text-green-600"></i>
+      </div>
+
+      <!-- メッセージ -->
+      <h1 class="text-2xl font-bold text-primary-900 mb-4">
+        送信完了しました
+      </h1>
+      <p class="text-gray-600 mb-6">
+        お問い合わせいただきありがとうございます。<br>
+        内容を確認のうえ、担当者より<br class="sm:hidden">ご連絡いたします。
+      </p>
+      <p class="text-sm text-gray-500 mb-8">
+        ※通常2〜3営業日以内にご返信いたします。<br>
+        お急ぎの場合はお電話にてご連絡ください。
+      </p>
+
+      <!-- トップへ戻る -->
+      <a href="/" class="inline-flex items-center bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full font-medium transition-colors">
+        <i data-lucide="home" class="w-5 h-5 mr-2"></i>
+        トップページへ戻る
+      </a>
+    </div>
+
+    <!-- 連絡先 -->
+    <p class="mt-8 text-sm text-gray-500">
+      お急ぎの方は <a href="tel:072-673-1192" class="text-primary-600 hover:underline">072-673-1192</a> まで
+    </p>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
