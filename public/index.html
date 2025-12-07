@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全防啓｜一般社団法人 全国防犯啓蒙推進機構</title>
+  <meta name="description" content="犯罪者の視点で考え、命を守る。元大阪府警の防犯専門家・折元洋巳が率いる全国防犯啓蒙推進機構。1,000人以上の犯罪者との対話経験を活かしたハイブリッド型防犯対策を提供。">
+  <meta name="keywords" content="防犯,セキュリティ,防犯対策,全防啓,折元洋巳,防犯診断,防犯講演,デジタルキー,防犯フィルム,監視カメラ">
+
+  <!-- OGP -->
+  <meta property="og:title" content="全防啓｜一般社団法人 全国防犯啓蒙推進機構">
+  <meta property="og:description" content="犯罪者の視点で考え、命を守る。元大阪府警の防犯専門家が提供するハイブリッド型防犯対策。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zenboukei.com">
+  <meta property="og:image" content="https://zenboukei.com/assets/images/ogp.jpg">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hiromi_orimoto">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* 全防啓ブランドカラー - シアンブルー系 */
+            primary: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#00b4d8',  /* ロゴのメインカラー */
+              600: '#0096c7',
+              700: '#0077b6',
+              800: '#005f8c',
+              900: '#023e58',
+            },
+            /* アクセントカラー - オレンジ（信頼性・温かみ） */
+            accent: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            },
+            /* ダークカラー - 深いネイビー */
+            dark: {
+              800: '#1e3a4f',
+              900: '#0f2937',
+              950: '#0a1f2c',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts - Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- AOS - Animate On Scroll -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* スムーススクロール */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ナビゲーション - 常に白背景でロゴを見やすく */
+    .nav-transparent {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-transparent .nav-link {
+      color: #0f2937;
+    }
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-scrolled .nav-link {
+      color: #0f2937;
+    }
+
+    /* モバイルメニュー */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* モーダル */
+    .modal {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* ヒーローグラデーションオーバーレイ - ブランドカラー */
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(15, 41, 55, 0.85) 0%, rgba(0, 150, 199, 0.6) 100%);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+  <!-- ======================================
+       ナビゲーション
+  ======================================= -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-transparent transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- ロゴ -->
+        <a href="#hero" class="nav-logo transition-all duration-300">
+          <img src="/assets/images/logo-zenboukei.png" alt="全防啓 - 一般社団法人 全国防犯啓蒙推進機構" class="h-10 sm:h-12 w-auto">
+        </a>
+
+        <!-- デスクトップメニュー -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="nav-link hover:text-primary-500 transition-colors duration-300">折元洋巳について</a>
+          <a href="#organization" class="nav-link hover:text-primary-500 transition-colors duration-300">全防啓とは</a>
+          <a href="#services" class="nav-link hover:text-primary-500 transition-colors duration-300">できること</a>
+          <a href="#media" class="nav-link hover:text-primary-500 transition-colors duration-300">メディア</a>
+          <a href="#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-full font-medium transition-colors duration-300">
+            お問い合わせ
+          </a>
+        </div>
+
+        <!-- モバイルメニューボタン -->
+        <button id="mobile-menu-btn" class="md:hidden text-dark-900 p-2" aria-label="メニューを開く">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- モバイルメニュー -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-dark-900 z-50 p-6">
+      <button id="mobile-menu-close" class="absolute top-6 right-6 text-white" aria-label="メニューを閉じる">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div class="mt-16 space-y-6">
+        <a href="#about" class="block text-white text-lg hover:text-accent-400 transition-colors">折元洋巳について</a>
+        <a href="#organization" class="block text-white text-lg hover:text-accent-400 transition-colors">全防啓とは</a>
+        <a href="#services" class="block text-white text-lg hover:text-accent-400 transition-colors">できること</a>
+        <a href="#media" class="block text-white text-lg hover:text-accent-400 transition-colors">メディア</a>
+        <a href="#contact" class="block bg-accent-500 hover:bg-accent-600 text-white px-5 py-3 rounded-full font-medium text-center transition-colors mt-8">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- モバイルメニュー オーバーレイ -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+
+  <!-- ======================================
+       1. ヒーローセクション
+  ======================================= -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- 背景画像 -->
+    <img
+      src="/assets/images/hero-child-door.png"
+      alt="玄関で笑顔の子ども - 家族の安全を守る"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      decoding="async"
+    >
+    <!-- オーバーレイ -->
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <!-- コンテンツ -->
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-accent-400 text-sm sm:text-base font-medium tracking-wider mb-4 animate__animated animate__fadeInDown">
+        一般社団法人 全国防犯啓蒙推進機構
+      </p>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 animate__animated animate__fadeInUp">
+        犯罪者の視点で考え、命を守る。<br>
+        <span class="text-accent-400">その先の、本当の安心へ</span>
+      </h1>
+      <p class="text-gray-200 text-base sm:text-lg md:text-xl mb-10 animate__animated animate__fadeInUp animate__delay-1s">
+        1,000人の犯罪者の本音を熟知した<br class="sm:hidden">防犯専門家・折元洋巳
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeInUp animate__delay-1s">
+        <a href="#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+          お問い合わせ
+        </a>
+        <a href="#services" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300">
+          サービスを見る
+        </a>
+      </div>
+    </div>
+
+    <!-- スクロールインジケーター -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-white/70 hover:text-white transition-colors">
+        <i data-lucide="chevron-down" class="w-8 h-8"></i>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       2. 折元洋巳について
+  ======================================= -->
+  <section id="about" class="py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- 画像 -->
+        <div class="relative" data-aos="fade-right">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <!-- 折元洋巳の写真（プレースホルダー） -->
+            <div class="w-full h-full bg-gradient-to-br from-primary-700 to-primary-900 flex items-center justify-center">
+              <div class="text-center text-white p-8">
+                <i data-lucide="user" class="w-24 h-24 mx-auto mb-4 opacity-50"></i>
+                <p class="text-sm opacity-70">折元洋巳の写真<br>（要：画像提供）</p>
+              </div>
+            </div>
+          </div>
+          <!-- 装飾 -->
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent-500/20 rounded-2xl -z-10"></div>
+        </div>
+
+        <!-- テキスト -->
+        <div data-aos="fade-left">
+          <p class="text-accent-500 font-medium mb-2">ABOUT</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-6">
+            折元 洋巳<span class="text-lg font-normal text-gray-500 ml-2">おりもと ひろみ</span>
+          </h2>
+          <p class="text-xl text-primary-700 font-medium mb-6">
+            1,000人の犯罪者の本音を熟知し、<br>「間違った防犯常識を打破する」唯一の防犯専門家
+          </p>
+
+          <!-- 実績カード -->
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <p class="text-3xl font-bold text-primary-600">40<span class="text-lg">年</span></p>
+              <p class="text-sm text-gray-600">警察+防犯のキャリア</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <p class="text-3xl font-bold text-primary-600">1,000<span class="text-lg">人+</span></p>
+              <p class="text-sm text-gray-600">犯罪者との対話経験</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <p class="text-3xl font-bold text-primary-600">1,200<span class="text-lg">件+</span></p>
+              <p class="text-sm text-gray-600">防犯相談実績</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm">
+              <p class="text-3xl font-bold text-primary-600">10,000<span class="text-lg">室+</span></p>
+              <p class="text-sm text-gray-600">防犯対策指導</p>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-gray-700 mb-8">
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-5 h-5 text-accent-500 mr-3 mt-0.5 flex-shrink-0"></i>
+              <span>元大阪府警 警察官（約20年）、留置場看守として勤務</span>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-5 h-5 text-accent-500 mr-3 mt-0.5 flex-shrink-0"></i>
+              <span>13回のがん手術を乗り越えたサバイバー</span>
+            </li>
+            <li class="flex items-start">
+              <i data-lucide="check-circle" class="w-5 h-5 text-accent-500 mr-3 mt-0.5 flex-shrink-0"></i>
+              <span>著書「留置場日記」Amazonベストセラー1位獲得</span>
+            </li>
+          </ul>
+
+          <button id="about-modal-btn" class="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium transition-colors">
+            <span>詳しい経歴を見る</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       3. 全防啓とは
+  ======================================= -->
+  <section id="organization" class="py-20 md:py-32 bg-dark-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="text-accent-400 font-medium mb-2">ORGANIZATION</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">全防啓とは</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto">
+          一般社団法人 全国防犯啓蒙推進機構
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- コンセプト -->
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">コンセプト</h3>
+          <p class="text-2xl font-bold text-accent-400 mb-4">「安全と安心」を<br>社会に拡げる</p>
+          <p class="text-gray-300 text-sm">
+            犯罪は未然に防ぐべきという信念のもと、防犯啓蒙活動を展開しています。
+          </p>
+        </div>
+
+        <!-- ハイブリッド型防犯 -->
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="combine" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">ハイブリッド型防犯</h3>
+          <p class="text-gray-300 mb-4">
+            警察時代の知識と防犯機器の専門知識を組み合わせた独自のアプローチ
+          </p>
+          <div class="flex items-center justify-center gap-4 text-sm">
+            <span class="bg-dark-800 px-3 py-1 rounded-full">警察知識</span>
+            <span class="text-primary-400">×</span>
+            <span class="bg-dark-800 px-3 py-1 rounded-full">防犯機器</span>
+          </div>
+        </div>
+
+        <!-- 設立情報 -->
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="building" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">団体情報</h3>
+          <ul class="text-left text-gray-300 space-y-2 text-sm">
+            <li><span class="text-gray-400">設立：</span>2012年11月14日</li>
+            <li><span class="text-gray-400">理事長：</span>折元 洋巳</li>
+            <li><span class="text-gray-400">顧問：</span>佐藤 正久（参議院議員）</li>
+            <li><span class="text-gray-400">所在地：</span>大阪府高槻市</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center" data-aos="fade-up">
+        <button id="org-modal-btn" class="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium transition-colors">
+          <span>団体概要の詳細を見る</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       4. できること（サービス導線）
+  ======================================= -->
+  <section id="services" class="py-20 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="text-accent-500 font-medium mb-2">SERVICES</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-4">できること</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          全防啓では、講演から防犯診断、製品提供まで、<br class="hidden sm:inline">総合的な防犯ソリューションをご提供しています。
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- 講演依頼 -->
+        <a href="https://lecture.zenboukei.com" class="group block bg-gray-50 hover:bg-primary-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 bg-primary-600 group-hover:bg-primary-700 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="mic" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">講演依頼</h3>
+          <p class="text-gray-600 mb-4">
+            「泥棒の目から見た防犯対策」など、ユーモアを交えたわかりやすい防犯講演を全国で展開。
+          </p>
+          <span class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-800">
+            詳しく見る
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+
+        <!-- 防犯診断・相談 -->
+        <a href="https://consultation.zenboukei.com" class="group block bg-gray-50 hover:bg-primary-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 bg-primary-600 group-hover:bg-primary-700 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="search" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">防犯診断・相談</h3>
+          <p class="text-gray-600 mb-4">
+            犯罪者の視点で住宅やオフィスの防犯状況を診断。リモート診断にも対応しています。
+          </p>
+          <span class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-800">
+            詳しく見る
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+
+        <!-- 製品・サービス -->
+        <a href="https://products.zenboukei.com" class="group block bg-gray-50 hover:bg-primary-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-14 h-14 bg-primary-600 group-hover:bg-primary-700 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="shield" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">製品・サービス</h3>
+          <p class="text-gray-600 mb-4">
+            デジタルキー、防犯フィルム、監視カメラ、AIシステムなど、月額サブスクでご提供。
+          </p>
+          <span class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-800">
+            詳しく見る
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+
+        <!-- 防犯知識 -->
+        <a href="https://knowledge.zenboukei.com" class="group block bg-gray-50 hover:bg-primary-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+          <div class="w-14 h-14 bg-primary-600 group-hover:bg-primary-700 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="book-open" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">防犯知識</h3>
+          <p class="text-gray-600 mb-4">
+            正しい防犯知識を身につけるための教育コンテンツ。間違った常識を見直しましょう。
+          </p>
+          <span class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-800">
+            詳しく見る
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+
+        <!-- 更新情報・ブログ -->
+        <a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 hover:bg-primary-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500">
+          <div class="w-14 h-14 bg-primary-600 group-hover:bg-primary-700 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="file-text" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">更新情報・コラム</h3>
+          <p class="text-gray-600 mb-4">
+            最新の防犯情報や折元洋巳のコラムを配信中。メールで最新情報をお届けします。
+          </p>
+          <span class="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-800">
+            Substackで読む
+            <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+          </span>
+        </a>
+
+        <!-- 滑り止め施工（追加サービス） -->
+        <div class="group block bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl p-8 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+          <div class="w-14 h-14 bg-accent-500 rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="footprints" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">滑り止め施工</h3>
+          <p class="text-gray-600 mb-4">
+            3,000件以上の施工実績。鏡面タイルでも光沢を損なわず防滑効果を実現します。
+          </p>
+          <span class="inline-flex items-center text-accent-600 font-medium">
+            <i data-lucide="badge-check" class="w-4 h-4 mr-2"></i>
+            3,000件以上の実績
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       5. メディア出演実績
+  ======================================= -->
+  <section id="media" class="py-20 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="text-accent-500 font-medium mb-2">MEDIA</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-4">メディア出演実績</h2>
+        <p class="text-gray-600">
+          テレビ、新聞、雑誌など多数のメディアで取り上げていただいています。
+        </p>
+      </div>
+
+      <!-- TV出演 -->
+      <div class="mb-12" data-aos="fade-up">
+        <h3 class="text-lg font-bold text-primary-800 mb-6 flex items-center">
+          <i data-lucide="tv" class="w-5 h-5 mr-2 text-accent-500"></i>
+          テレビ出演
+        </h3>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">ホンマでっか!?TV（フジテレビ）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">ZIP!（日本テレビ）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">す・またん!（読売テレビ）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">林修の今でしょ!講座（テレビ朝日）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">羽鳥慎一モーニングショー（テレビ朝日）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">試してガッテン（NHK）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">スッキリ（日本テレビ）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">おはよう朝日です（ABC）</span>
+        </div>
+      </div>
+
+      <!-- 取材・執筆 -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-lg font-bold text-primary-800 mb-6 flex items-center">
+          <i data-lucide="newspaper" class="w-5 h-5 mr-2 text-accent-500"></i>
+          取材・執筆
+        </h3>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">週刊新潮「特別読物」</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">読売新聞</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">西日本新聞</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">全国賃貸住宅新聞</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">SUUMO（リクルート）</span>
+          <span class="bg-white px-6 py-3 rounded-full shadow-sm text-gray-700 font-medium">家の光（JA）</span>
+        </div>
+      </div>
+
+      <!-- 著書 -->
+      <div class="mt-16 bg-white rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-lg font-bold text-primary-800 mb-6 flex items-center justify-center">
+          <i data-lucide="book" class="w-5 h-5 mr-2 text-accent-500"></i>
+          著書
+        </h3>
+        <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div class="text-center">
+            <div class="w-32 h-44 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
+              <i data-lucide="book-open" class="w-12 h-12 text-primary-400"></i>
+            </div>
+            <p class="font-bold text-primary-900">留置場日記</p>
+            <p class="text-sm text-gray-600">1,000人の犯罪者が教えてくれた本当の話</p>
+            <p class="text-xs text-accent-500 mt-1">Amazonベストセラー1位</p>
+          </div>
+          <div class="text-center">
+            <div class="w-32 h-44 bg-gradient-to-br from-accent-100 to-accent-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
+              <i data-lucide="heart" class="w-12 h-12 text-accent-400"></i>
+            </div>
+            <p class="font-bold text-primary-900">がんとの壮絶バトル13回</p>
+            <p class="text-sm text-gray-600">絶望からの大逆転や!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       6. お問い合わせ
+  ======================================= -->
+  <section id="contact" class="py-20 md:py-32 bg-dark-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div data-aos="fade-up">
+        <p class="text-accent-400 font-medium mb-2">CONTACT</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">お問い合わせ</h2>
+        <p class="text-gray-300 mb-10 max-w-2xl mx-auto">
+          講演依頼、防犯診断、製品に関するご相談など、<br class="hidden sm:inline">お気軽にお問い合わせください。
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 mb-12" data-aos="fade-up" data-aos-delay="100">
+        <!-- 電話 -->
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8">
+          <div class="w-14 h-14 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="phone" class="w-7 h-7 text-white"></i>
+          </div>
+          <p class="text-sm text-gray-400 mb-2">お電話でのお問い合わせ</p>
+          <a href="tel:072-673-1192" class="text-2xl font-bold text-white hover:text-accent-400 transition-colors">
+            072-673-1192
+          </a>
+          <p class="text-xs text-gray-400 mt-2">平日 9:00〜18:00</p>
+        </div>
+
+        <!-- メール -->
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8">
+          <div class="w-14 h-14 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="mail" class="w-7 h-7 text-white"></i>
+          </div>
+          <p class="text-sm text-gray-400 mb-2">メールでのお問い合わせ</p>
+          <a href="mailto:moshimoshi@zenboukei.online" class="text-lg font-bold text-white hover:text-accent-400 transition-colors break-all">
+            moshimoshi@zenboukei.online
+          </a>
+          <p class="text-xs text-gray-400 mt-2">24時間受付</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="mailto:moshimoshi@zenboukei.online?subject=お問い合わせ" class="inline-flex items-center bg-accent-500 hover:bg-accent-600 text-white px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+          <i data-lucide="send" class="w-5 h-5 mr-3"></i>
+          メールで問い合わせる
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       7. フッター
+  ======================================= -->
+  <footer class="bg-gray-900 text-gray-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- 団体情報 -->
+        <div>
+          <p class="text-white font-bold text-xl mb-4">全防啓</p>
+          <p class="text-sm mb-4">一般社団法人 全国防犯啓蒙推進機構</p>
+          <address class="not-italic text-sm space-y-2">
+            <p>〒569-0086</p>
+            <p>大阪府高槻市松原町2番6号<br>高槻英和ビル2階</p>
+            <p>TEL: <a href="tel:072-673-1192" class="hover:text-white transition-colors">072-673-1192</a></p>
+            <p>FAX: 072-673-3955</p>
+          </address>
+        </div>
+
+        <!-- リンク -->
+        <div>
+          <p class="text-white font-bold mb-4">サービス</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://lecture.zenboukei.com" class="hover:text-white transition-colors">講演依頼</a></li>
+            <li><a href="https://consultation.zenboukei.com" class="hover:text-white transition-colors">防犯診断・相談</a></li>
+            <li><a href="https://products.zenboukei.com" class="hover:text-white transition-colors">製品・サービス</a></li>
+            <li><a href="https://knowledge.zenboukei.com" class="hover:text-white transition-colors">防犯知識</a></li>
+            <li><a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">更新情報・コラム</a></li>
+          </ul>
+        </div>
+
+        <!-- SNS & 法的情報 -->
+        <div>
+          <p class="text-white font-bold mb-4">フォローする</p>
+          <div class="flex gap-4 mb-6">
+            <a href="https://x.com/hiromi_orimoto" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="X (Twitter)">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.threads.net/@bouhan_ha_orimoto" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Threads">
+              <i data-lucide="at-sign" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/privacy" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+            <li><a href="/legal" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- コピーライト -->
+      <div class="border-t border-gray-800 pt-8 text-center text-sm">
+        <p>&copy; 2012-2025 一般社団法人 全国防犯啓蒙推進機構. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================
+       モーダル: 折元洋巳 詳細
+  ======================================= -->
+  <div id="about-modal" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/70">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-white border-b p-4 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-primary-900">折元洋巳 プロフィール詳細</h3>
+        <button class="modal-close text-gray-500 hover:text-gray-700" aria-label="閉じる">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-6">
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">経歴</h4>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>・大阪府警察で約20年間勤務</li>
+            <li>・留置場の看守として1,000人以上の犯罪者の心理や手口を聴き出す</li>
+            <li>・2012年、一般社団法人 全国防犯啓蒙推進機構を設立</li>
+            <li>・防犯専門家としてこれまで20年の経験</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">役職</h4>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>・一般社団法人 全国防犯啓蒙推進機構 理事長</li>
+            <li>・一般社団法人 大阪府建築士事務所協会 理事</li>
+            <li>・大阪府建築士事務所協会・賛助会 会長</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">実績</h4>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>・1,200人以上の防犯相談実績</li>
+            <li>・10,000室以上の防犯対策を指導（主に賃貸物件）</li>
+            <li>・著書「留置場日記」Amazonベストセラー1位</li>
+            <li>・「ホンマでっか!?TV」「林修の今でしょ！講座」など多数のTV出演</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">講演テーマ例</h4>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>・泥棒の目から見た防犯対策</li>
+            <li>・高付加価値賃貸物件のための防犯対策</li>
+            <li>・絶望を希望に変える生き方（がんサバイバーとして）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       モーダル: 全防啓 詳細
+  ======================================= -->
+  <div id="org-modal" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/70">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-white border-b p-4 flex items-center justify-between">
+        <h3 class="text-xl font-bold text-primary-900">団体概要</h3>
+        <button class="modal-close text-gray-500 hover:text-gray-700" aria-label="閉じる">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-6">
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">団体情報</h4>
+          <table class="w-full text-sm">
+            <tr class="border-b"><td class="py-2 text-gray-500 w-28">団体名</td><td class="py-2">一般社団法人 全国防犯啓蒙推進機構</td></tr>
+            <tr class="border-b"><td class="py-2 text-gray-500">略称</td><td class="py-2">全防啓（ぜんぼうけい）</td></tr>
+            <tr class="border-b"><td class="py-2 text-gray-500">設立</td><td class="py-2">平成24年（2012年）11月14日</td></tr>
+            <tr class="border-b"><td class="py-2 text-gray-500">所在地</td><td class="py-2">〒569-0086<br>大阪府高槻市松原町2番6号 高槻英和ビル2階</td></tr>
+            <tr class="border-b"><td class="py-2 text-gray-500">電話</td><td class="py-2">072-673-1192</td></tr>
+            <tr><td class="py-2 text-gray-500">FAX</td><td class="py-2">072-673-3955</td></tr>
+          </table>
+        </div>
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">役員構成</h4>
+          <table class="w-full text-sm">
+            <tr class="border-b"><td class="py-2 text-gray-500 w-28">理事長</td><td class="py-2">折元 洋巳（元大阪府警）</td></tr>
+            <tr class="border-b"><td class="py-2 text-gray-500">顧問</td><td class="py-2">佐藤 正久（参議院議員）</td></tr>
+          </table>
+        </div>
+        <div>
+          <h4 class="font-bold text-primary-800 mb-2">提言委員</h4>
+          <ul class="text-gray-700 space-y-2 text-sm">
+            <li>・小宮 信夫（立正大学教授・犯罪社会学）</li>
+            <li>・山本 剛（大阪府建築士事務所協会 顧問）</li>
+            <li>・市岡 照男（大阪府建築士事務所協会 監事）</li>
+            <li>・笠井 秀一（大阪府建築士事務所協会・賛助会顧問）</li>
+            <li>・益田 哲夫（日本アイシス・コンサルティング株式会社 代表取締役、元公安調査庁）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       JavaScript
+  ======================================= -->
+  <script>
+    // Lucide Icons 初期化
+    lucide.createIcons();
+
+    // AOS 初期化
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // ナビゲーション スクロール時の背景変化
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove('nav-transparent');
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.add('nav-transparent');
+      }
+    });
+
+    // モバイルメニュー
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // モバイルメニュー内リンククリックで閉じる
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // モーダル
+    const aboutModalBtn = document.getElementById('about-modal-btn');
+    const aboutModal = document.getElementById('about-modal');
+    const orgModalBtn = document.getElementById('org-modal-btn');
+    const orgModal = document.getElementById('org-modal');
+
+    function openModal(modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // Lucide Icons を再レンダリング
+      setTimeout(() => lucide.createIcons(), 100);
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    aboutModalBtn.addEventListener('click', () => openModal(aboutModal));
+    orgModalBtn.addEventListener('click', () => openModal(orgModal));
+
+    // モーダル閉じるボタン
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        closeModal(e.target.closest('.modal'));
+      });
+    });
+
+    // モーダル外クリックで閉じる
+    [aboutModal, orgModal].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
+
+    // ESCキーでモーダル閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        [aboutModal, orgModal].forEach(modal => {
+          if (modal.classList.contains('active')) {
+            closeModal(modal);
+          }
+        });
+        closeMobileMenu();
+      }
+    });
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+</html>
