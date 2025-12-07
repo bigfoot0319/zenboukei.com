@@ -42,12 +42,15 @@
               800: '#005f8c',
               900: '#023e58',
             },
-            /* アクセントカラー - エメラルドグリーン（安心・成長・家庭的） */
+            /* アクセントカラー - ゴールド/アンバー（信頼・品質・プレミアム感） */
             accent: {
-              300: '#6ee7b7',
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
+              50: '#fffbeb',
+              100: '#fef3c7',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
             },
             /* ダークカラー - 明るめのネイビー */
             dark: {
@@ -73,8 +76,6 @@
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-  <!-- AOS - Animate On Scroll -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
@@ -237,7 +238,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
         <!-- 画像 -->
-        <div class="relative" data-aos="fade-right">
+        <div class="relative">
           <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
             <!-- 折元洋巳の写真（プレースホルダー） -->
             <div class="w-full h-full bg-gradient-to-br from-primary-700 to-primary-900 flex items-center justify-center">
@@ -252,7 +253,7 @@
         </div>
 
         <!-- テキスト -->
-        <div data-aos="fade-left">
+        <div>
           <p class="text-primary-500 font-medium mb-2">ABOUT</p>
           <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-6">
             折元 洋巳<span class="text-lg font-normal text-gray-500 ml-2">おりもと ひろみ</span>
@@ -311,7 +312,7 @@
   ======================================= -->
   <section id="organization" class="py-20 md:py-32 bg-primary-50 text-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
+      <div class="text-center mb-16">
         <p class="text-primary-500 font-medium mb-2">ORGANIZATION</p>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">全防啓とは</h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
@@ -321,7 +322,7 @@
 
       <div class="grid md:grid-cols-3 gap-8 mb-16">
         <!-- コンセプト -->
-        <div class="bg-white rounded-2xl p-8 text-center shadow-lg" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg">
           <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
           </div>
@@ -333,7 +334,7 @@
         </div>
 
         <!-- ハイブリッド型防犯 -->
-        <div class="bg-white rounded-2xl p-8 text-center shadow-lg" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg">
           <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="combine" class="w-8 h-8 text-white"></i>
           </div>
@@ -349,7 +350,7 @@
         </div>
 
         <!-- 設立情報 -->
-        <div class="bg-white rounded-2xl p-8 text-center shadow-lg" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-lg">
           <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <i data-lucide="building" class="w-8 h-8 text-white"></i>
           </div>
@@ -363,7 +364,7 @@
         </div>
       </div>
 
-      <div class="text-center" data-aos="fade-up">
+      <div class="text-center">
         <button id="org-modal-btn" class="inline-flex items-center text-accent-600 hover:text-accent-700 font-medium transition-colors">
           <span>団体概要の詳細を見る</span>
           <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
@@ -378,7 +379,7 @@
   ======================================= -->
   <section id="services" class="py-20 md:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
+      <div class="text-center mb-16">
         <p class="text-primary-500 font-medium mb-2">SERVICES</p>
         <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-4">できること</h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
@@ -388,7 +389,7 @@
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         <!-- 講演依頼 -->
-        <a href="https://lecture.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+        <a href="https://lecture.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="mic" class="w-7 h-7 text-white"></i>
           </div>
@@ -403,7 +404,7 @@
         </a>
 
         <!-- 防犯診断・相談 -->
-        <a href="https://consultation.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://consultation.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="search" class="w-7 h-7 text-white"></i>
           </div>
@@ -418,7 +419,7 @@
         </a>
 
         <!-- 製品・サービス -->
-        <a href="https://products.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+        <a href="https://products.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="shield" class="w-7 h-7 text-white"></i>
           </div>
@@ -433,7 +434,7 @@
         </a>
 
         <!-- 防犯知識 -->
-        <a href="https://knowledge.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+        <a href="https://knowledge.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="book-open" class="w-7 h-7 text-white"></i>
           </div>
@@ -448,7 +449,7 @@
         </a>
 
         <!-- 更新情報・ブログ -->
-        <a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500">
+        <a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="file-text" class="w-7 h-7 text-white"></i>
           </div>
@@ -463,7 +464,7 @@
         </a>
 
         <!-- 滑り止め施工（追加サービス） -->
-        <div class="group block bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl p-8 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+        <div class="group block bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl p-8 transition-all duration-300">
           <div class="w-14 h-14 bg-accent-500 rounded-xl flex items-center justify-center mb-6">
             <i data-lucide="footprints" class="w-7 h-7 text-white"></i>
           </div>
@@ -486,7 +487,7 @@
   ======================================= -->
   <section id="media" class="py-20 md:py-32 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
+      <div class="text-center mb-16">
         <p class="text-primary-500 font-medium mb-2">MEDIA</p>
         <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-4">メディア出演実績</h2>
         <p class="text-gray-600">
@@ -495,7 +496,7 @@
       </div>
 
       <!-- TV出演 -->
-      <div class="mb-12" data-aos="fade-up">
+      <div class="mb-12">
         <h3 class="text-lg font-bold text-primary-800 mb-6 flex items-center">
           <i data-lucide="tv" class="w-5 h-5 mr-2 text-primary-500"></i>
           テレビ出演
@@ -513,7 +514,7 @@
       </div>
 
       <!-- 取材・執筆 -->
-      <div data-aos="fade-up" data-aos-delay="100">
+      <div>
         <h3 class="text-lg font-bold text-primary-800 mb-6 flex items-center">
           <i data-lucide="newspaper" class="w-5 h-5 mr-2 text-primary-500"></i>
           取材・執筆
@@ -529,7 +530,7 @@
       </div>
 
       <!-- 著書 -->
-      <div class="mt-16 bg-white rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+      <div class="mt-16 bg-white rounded-2xl p-8 shadow-sm">
         <h3 class="text-lg font-bold text-primary-800 mb-6 flex items-center justify-center">
           <i data-lucide="book" class="w-5 h-5 mr-2 text-primary-500"></i>
           著書
@@ -561,7 +562,7 @@
   ======================================= -->
   <section id="contact" class="py-20 md:py-32 bg-gradient-to-br from-accent-500 to-accent-600 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div data-aos="fade-up">
+      <div>
         <p class="text-accent-300 font-medium mb-2">CONTACT</p>
         <h2 class="text-3xl md:text-4xl font-bold mb-6">お問い合わせ</h2>
         <p class="text-white/90 mb-10 max-w-2xl mx-auto">
@@ -569,7 +570,7 @@
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-6 mb-12" data-aos="fade-up" data-aos-delay="100">
+      <div class="grid sm:grid-cols-2 gap-6 mb-12">
         <!-- 電話 -->
         <div class="bg-white/20 backdrop-blur rounded-2xl p-8">
           <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
@@ -596,7 +597,7 @@
       </div>
 
       <!-- CTA -->
-      <div data-aos="fade-up" data-aos-delay="200">
+      <div>
         <a href="mailto:moshimoshi@zenboukei.online?subject=お問い合わせ" class="inline-flex items-center bg-white hover:bg-accent-50 text-accent-600 px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg">
           <i data-lucide="send" class="w-5 h-5 mr-3"></i>
           メールで問い合わせる
@@ -765,12 +766,6 @@
     // Lucide Icons 初期化
     lucide.createIcons();
 
-    // AOS 初期化
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
 
     // ナビゲーション スクロール時の背景変化
     const navbar = document.getElementById('navbar');
@@ -861,7 +856,5 @@
     });
   </script>
 
-  <!-- AOS JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
 </html>
