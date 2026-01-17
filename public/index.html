@@ -20,7 +20,7 @@
   <meta name="twitter:site" content="@hiromi_orimoto">
 
   <!-- Favicon -->
-  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
 
   <!-- Tailwind CSS v4 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -139,6 +139,19 @@
       text-shadow:
         0 2px 10px rgba(255, 255, 255, 0.8),
         0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    /* アコーディオン */
+    .accordion-item.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .accordion-item.open .accordion-content {
+      max-height: 500px;
     }
   </style>
 </head>
@@ -414,22 +427,39 @@
         </a>
 
         <!-- 製品・サービス -->
-        <a href="https://products.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <button id="products-modal-btn" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="shield" class="w-7 h-7 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-primary-900 mb-3">製品・サービス</h3>
           <p class="text-gray-600 mb-4">
-            デジタルキー、防犯フィルム、監視カメラ、AIシステム。犯罪者が本当に嫌がる製品を組み合わせ、住宅からオフィス・大規模施設まで対応。
+            デジタルキー、防犯フィルム、監視カメラ、AIシステム。犯罪者が本当に嫌がる製品を選定から施工まで。
           </p>
           <span class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700">
             詳しく見る
             <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
           </span>
-        </a>
+        </button>
+
+        <!-- 簡易パニックルーム【新規】 -->
+        <button id="panic-room-modal-btn" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left relative">
+          <!-- NEWバッジ -->
+          <span class="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+          <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
+            <i data-lucide="home" class="w-7 h-7 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary-900 mb-3">簡易パニックルーム</h3>
+          <p class="text-gray-600 mb-4">
+            闇バイト強盗から家族を守る「最後の砦」。今ある寝室を、最短1日で安全地帯に変えます。
+          </p>
+          <span class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700">
+            詳しく見る
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </button>
 
         <!-- 防犯相談 -->
-        <a href="https://consultation.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <button id="consultation-modal-btn" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
           </div>
@@ -441,7 +471,7 @@
             詳しく見る
             <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
           </span>
-        </a>
+        </button>
 
         <!-- 防犯知識 -->
         <a href="https://knowledge.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -459,16 +489,16 @@
         </a>
 
         <!-- コラム -->
-        <a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <a href="https://note.com/zenboukei" target="_blank" rel="noopener noreferrer" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="file-text" class="w-7 h-7 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-primary-900 mb-3">コラム</h3>
           <p class="text-gray-600 mb-4">
-            最新の防犯情報や折元洋巳のコラムを配信中。メールで最新情報をお届けします。
+            最新の防犯情報や折元洋巳のコラムを配信中。最新情報をお届けします。
           </p>
           <span class="inline-flex items-center text-accent-600 font-medium group-hover:text-accent-700">
-            Substackで読む
+            noteで読む
             <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
           </span>
         </a>
@@ -664,7 +694,7 @@
             <li><a href="https://products.zenboukei.com" class="hover:text-white transition-colors">製品・サービス</a></li>
             <li><a href="https://consultation.zenboukei.com" class="hover:text-white transition-colors">防犯相談</a></li>
             <li><a href="https://knowledge.zenboukei.com" class="hover:text-white transition-colors">防犯知識</a></li>
-            <li><a href="https://zenboukei.substack.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">コラム</a></li>
+            <li><a href="https://note.com/zenboukei" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">コラム</a></li>
           </ul>
         </div>
 
@@ -792,6 +822,722 @@
 
 
   <!-- ======================================
+       モーダル: 簡易パニックルーム
+  ======================================= -->
+  <div id="modal-panic-room" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/70">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <!-- ヘッダー（紺のグラデーション＋赤アクセント） -->
+      <div class="sticky top-0 z-10 bg-gradient-to-r from-[#1a365d] to-[#2d4a7c] text-white p-6 rounded-t-2xl border-b-4 border-red-500">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-bold mb-1">簡易パニックルーム</h3>
+            <p class="text-white/80 text-sm">〜闇バイト強盗から家族を守る『最後の砦』〜</p>
+          </div>
+          <button class="modal-close text-white/80 hover:text-white transition-colors" aria-label="閉じる">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 space-y-8">
+
+        <!-- セクション1：なぜ今必要なのか -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-500"></i>
+            従来の防犯対策では守れない新しい脅威
+          </h4>
+
+          <!-- 比較表 -->
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr>
+                  <th class="p-3 bg-gray-100 border text-left font-medium text-gray-700">項目</th>
+                  <th class="p-3 bg-gray-100 border text-left font-medium text-gray-700">従来の泥棒</th>
+                  <th class="p-3 bg-red-50 border text-left font-medium text-red-800">闇バイト強盗</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-3 border text-gray-600 font-medium">目的</td>
+                  <td class="p-3 border text-gray-700">逃げ切ること</td>
+                  <td class="p-3 border bg-red-50 text-red-800 font-medium">指示役の命令完遂</td>
+                </tr>
+                <tr>
+                  <td class="p-3 border text-gray-600 font-medium">行動</td>
+                  <td class="p-3 border text-gray-700">面倒な家は避ける</td>
+                  <td class="p-3 border bg-red-50 text-red-800 font-medium">障害があっても突破</td>
+                </tr>
+                <tr>
+                  <td class="p-3 border text-gray-600 font-medium">暴力性</td>
+                  <td class="p-3 border text-gray-700">抵抗されたら逃げる</td>
+                  <td class="p-3 border bg-red-50 text-red-800 font-medium">素人ゆえの残忍性</td>
+                </tr>
+                <tr>
+                  <td class="p-3 border text-gray-600 font-medium">有効な対策</td>
+                  <td class="p-3 border text-gray-700">侵入を困難にする</td>
+                  <td class="p-3 border bg-red-50 text-red-800 font-medium">侵入されても身を守る</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 強調ボックス -->
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+            <p class="text-amber-900 font-medium text-sm">
+              「入りにくくする」だけでは不十分。<br class="sm:hidden">
+              <strong>「入られても守る」という発想の転換が必要です。</strong>
+            </p>
+          </div>
+        </section>
+
+        <!-- セクション2：簡易パニックルームとは -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="home" class="w-5 h-5 text-primary-500"></i>
+            今ある寝室を『最後の砦』に変える
+          </h4>
+
+          <p class="text-gray-700 mb-4">
+            海外映画のような大掛かりなものではありません。今ある寝室を簡単な改修で、家族が安全に籠城できる場所にします。
+          </p>
+
+          <div class="bg-primary-50 border border-primary-200 rounded-xl p-4">
+            <p class="text-primary-800 font-medium text-sm">
+              <i data-lucide="shield-check" class="w-4 h-4 inline mr-1"></i>
+              日本の警察は優秀です。<strong>通報さえできれば、最短5分で到着します。</strong><br>
+              その時間を稼ぐことが目的です。
+            </p>
+          </div>
+        </section>
+
+        <!-- セクション3：松竹梅プラン -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="list-checks" class="w-5 h-5 text-primary-500"></i>
+            3つのプラン
+          </h4>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <!-- 松：完全プラン -->
+            <div class="bg-gray-100 rounded-xl p-4 opacity-60">
+              <div class="text-center mb-3">
+                <span class="text-2xl">🏛️</span>
+                <h5 class="font-bold text-gray-500 mt-1">【松】完全プラン</h5>
+              </div>
+              <ul class="text-xs text-gray-500 space-y-1 mb-3">
+                <li>・地下室</li>
+                <li>・鉄扉</li>
+                <li>・防弾仕様</li>
+              </ul>
+              <p class="text-sm font-bold text-gray-500 mb-2">数千万円〜</p>
+              <span class="inline-block bg-gray-300 text-gray-600 text-xs px-2 py-1 rounded">日本では基本不要</span>
+            </div>
+
+            <!-- 竹：上位プラン -->
+            <div class="bg-white border border-gray-200 rounded-xl p-4">
+              <div class="text-center mb-3">
+                <span class="text-2xl">🏠</span>
+                <h5 class="font-bold text-primary-800 mt-1">【竹】上位プラン</h5>
+              </div>
+              <ul class="text-xs text-gray-700 space-y-1 mb-3">
+                <li>・梅プランの内容</li>
+                <li>・トイレ設置</li>
+                <li>・配管工事込み</li>
+              </ul>
+              <p class="text-sm font-bold text-primary-700 mb-2">数百万円程度</p>
+              <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">長時間籠城想定</span>
+            </div>
+
+            <!-- 梅：簡易プラン（推奨） -->
+            <div class="bg-orange-50 border-2 border-orange-400 rounded-xl p-4 relative">
+              <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">★推奨</span>
+              <div class="text-center mb-3">
+                <span class="text-2xl">🛡️</span>
+                <h5 class="font-bold text-orange-800 mt-1">【梅】簡易プラン</h5>
+              </div>
+              <ul class="text-xs text-gray-700 space-y-1 mb-3">
+                <li>・扉強化</li>
+                <li>・防犯フィルム</li>
+                <li>・監視カメラ+AI</li>
+                <li>・緊急通報システム</li>
+              </ul>
+              <p class="text-sm font-bold text-orange-700 mb-2">100万円前後</p>
+              <span class="inline-block bg-orange-500 text-white text-xs px-2 py-1 rounded">最短1日で施工完了</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- セクション4：梅プランの構成要素 -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="wrench" class="w-5 h-5 text-primary-500"></i>
+            梅プランに含まれる5つの対策
+          </h4>
+
+          <div class="space-y-4">
+            <!-- 扉の強化 -->
+            <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="text-3xl flex-shrink-0">🚪</div>
+              <div>
+                <h5 class="font-bold text-primary-800 mb-1">扉の強化</h5>
+                <p class="text-sm text-gray-600">室内側からしか開けられない鍵を設置。侵入者が外からどこに鍵があるかわからない状態を作ります。</p>
+              </div>
+            </div>
+
+            <!-- 窓の防犯フィルム -->
+            <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="text-3xl flex-shrink-0">🪟</div>
+              <div>
+                <h5 class="font-bold text-primary-800 mb-1">窓の防犯フィルム（350μ）</h5>
+                <p class="text-sm text-gray-600">通常の飛散防止フィルムの7倍の厚さ。ハンマーで叩いても簡単に貫通できません。</p>
+              </div>
+            </div>
+
+            <!-- 監視カメラ＋AI -->
+            <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="text-3xl flex-shrink-0">📹</div>
+              <div>
+                <h5 class="font-bold text-primary-800 mb-1">監視カメラ＋AI</h5>
+                <p class="text-sm text-gray-600">不審者を検知し、寝室内のモニターで状況確認。有線式推奨（Wi-Fi妨害装置対策）。</p>
+              </div>
+            </div>
+
+            <!-- 緊急通報手段 -->
+            <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="text-3xl flex-shrink-0">🚨</div>
+              <div>
+                <h5 class="font-bold text-primary-800 mb-1">緊急通報手段</h5>
+                <p class="text-sm text-gray-600">緊急ボタン＋警報ブザー。押すと外で警報が鳴り、パトライトが回る仕組みも可能。</p>
+              </div>
+            </div>
+
+            <!-- 簡易トイレ（オプション） -->
+            <div class="flex gap-4 p-4 bg-white border border-dashed border-gray-300 rounded-xl">
+              <div class="text-3xl flex-shrink-0">🚽</div>
+              <div>
+                <h5 class="font-bold text-primary-800 mb-1">簡易トイレ<span class="text-xs font-normal text-gray-500 ml-2">（オプション）</span></h5>
+                <p class="text-sm text-gray-600">長時間の籠城に対応。防災用としても活用可能。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- フッター（CTA） -->
+      <div class="sticky bottom-0 bg-white border-t p-6 rounded-b-2xl">
+        <p class="text-center text-primary-800 font-medium mb-4">
+          大切なご家族の安全のために、ぜひご検討ください。
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="#contact" class="inline-flex items-center bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-full font-medium transition-colors duration-300 shadow-lg" onclick="closeModal(document.getElementById('modal-panic-room'))">
+            <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+            間取り図を送って相談する
+          </a>
+          <a href="tel:072-673-1192" class="inline-flex items-center text-primary-700 hover:text-primary-900 font-medium transition-colors">
+            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+            072-673-1192
+          </a>
+        </div>
+        <p class="text-xs text-gray-500 text-center mt-3">
+          間取り図をお送りいただければ、概算をお伝えします
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       モーダル: 製品・サービス
+  ======================================= -->
+  <div id="modal-products" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/70">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+      <!-- ヘッダー（紺のグラデーション） -->
+      <div class="sticky top-0 z-10 bg-gradient-to-r from-[#1a365d] to-[#2d4a7c] text-white p-6 rounded-t-2xl">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-bold mb-1">製品・サービス</h3>
+            <p class="text-white/80 text-sm">犯罪者が本当に嫌がる製品を、選定から施工までお届けします</p>
+          </div>
+          <button class="modal-close text-white/80 hover:text-white transition-colors" aria-label="閉じる">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- アコーディオン形式の製品カテゴリ -->
+      <div class="p-6 space-y-3">
+
+        <!-- 1. デジタルキー -->
+        <div class="accordion-item border border-gray-200 rounded-xl overflow-hidden">
+          <button class="accordion-header w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">🔐</span>
+              <span class="font-bold text-primary-900">デジタルキー（電子錠）</span>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content hidden">
+            <div class="p-4 bg-white border-t border-gray-100">
+              <p class="text-gray-700 mb-4">
+                鍵を持たない暮らし、始めませんか？スマートフォンや暗証番号で解錠。鍵の紛失・盗難リスクをゼロに。
+              </p>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">特徴</h5>
+              <ul class="text-gray-600 text-sm space-y-2 mb-4">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>暗証番号＋カードの2要素認証対応</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>出入り履歴が記録される（不審な出入りを検知）</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>退職者のカードを即時無効化可能</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>24時間365日コールセンター対応</span>
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500">取扱製品：The LOCK / Smart DUAL Lock / MY LOCK</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 防犯フィルム -->
+        <div class="accordion-item border border-gray-200 rounded-xl overflow-hidden">
+          <button class="accordion-header w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">🪟</span>
+              <span class="font-bold text-primary-900">防犯フィルム</span>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content hidden">
+            <div class="p-4 bg-white border-t border-gray-100">
+              <p class="text-gray-700 mb-4">
+                窓ガラス、5分で破られます。CP認定の350ミクロン防犯フィルムで、侵入に時間をかけさせます。
+              </p>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">特徴</h5>
+              <ul class="text-gray-600 text-sm space-y-2 mb-4">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>CP認定マーク付き（警察庁認定の防犯性能）</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>3つの効果：防犯・地震対策・紫外線カット</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>透明タイプで見た目を損なわない</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>耐用年数7〜10年</span>
+                </li>
+              </ul>
+              <p class="text-xs text-gray-500">※凹凸ガラス用もあります</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 監視カメラシステム -->
+        <div class="accordion-item border border-gray-200 rounded-xl overflow-hidden">
+          <button class="accordion-header w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">📹</span>
+              <span class="font-bold text-primary-900">監視カメラシステム</span>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content hidden">
+            <div class="p-4 bg-white border-t border-gray-100">
+              <p class="text-gray-700 mb-4">
+                見られている家には、入らない。抑止力と証拠保全の両立を実現します。
+              </p>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">特徴</h5>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>200万画素、5年保証（HDDも含む）</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>AI機能で人・車を検知</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>スマホで外出先から確認可能</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>有線式推奨（Wi-Fi妨害装置対策）</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 後からAIサービス -->
+        <div class="accordion-item border border-gray-200 rounded-xl overflow-hidden">
+          <button class="accordion-header w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">🤖</span>
+              <span class="font-bold text-primary-900">後からAIサービス</span>
+              <span class="bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded">日本でオンリーワン</span>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content hidden">
+            <div class="p-4 bg-white border-t border-gray-100">
+              <p class="text-gray-700 mb-4">
+                既存の防犯カメラをそのままAI化。新規導入なしで、安価にAI監視を実現。
+              </p>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">特徴</h5>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>ほとんどの既存カメラに対応</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>AI検知時にパトライト・スピーカー連動可能</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>検知する曜日・時間・範囲を指定可能</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>月額2,800円〜</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 安全・安心な住まい認定 -->
+        <div class="accordion-item border border-gray-200 rounded-xl overflow-hidden">
+          <button class="accordion-header w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">🏆</span>
+              <span class="font-bold text-primary-900">安全・安心な住まい認定</span>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 accordion-icon transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content hidden">
+            <div class="p-4 bg-white border-t border-gray-100">
+              <p class="text-gray-700 mb-4">
+                全防啓独自の第三者認定制度。物件の付加価値を高め、入居促進につなげます。
+              </p>
+              <p class="text-xs text-primary-600 mb-3">対象：賃貸オーナー、不動産管理会社</p>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">特徴</h5>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>認定基準：1ドア2ロック以上 ＋ 1階窓に防犯対策</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>第三者機関認定で物件の信頼性向上</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500 mt-0.5 flex-shrink-0"></i>
+                  <span>認定シール・証明書を発行</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- フッター（CTA） -->
+      <div class="sticky bottom-0 bg-gray-50 border-t p-4 rounded-b-2xl">
+        <p class="text-xs text-gray-500 text-center mb-3">
+          価格は建物状況により異なります。まずはお気軽にご相談ください。
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="#contact" class="inline-flex items-center bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-full font-medium transition-colors duration-300" onclick="closeModal(document.getElementById('modal-products'))">
+            <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+            無料相談・お見積り
+          </a>
+          <a href="tel:072-673-1192" class="inline-flex items-center text-primary-700 hover:text-primary-900 font-medium transition-colors">
+            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+            072-673-1192
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       モーダル: 防犯相談
+  ======================================= -->
+  <div id="modal-consultation" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/70">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <!-- ヘッダー（紺のグラデーション + 実績バッジ） -->
+      <div class="sticky top-0 z-10 bg-gradient-to-r from-[#1a365d] to-[#2d4a7c] text-white p-6 rounded-t-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+          <div>
+            <h3 class="text-xl font-bold mb-1">無料防犯相談</h3>
+            <p class="text-white/80 text-sm">あなたの家は『泥棒が狙う家』の条件を満たしていませんか？</p>
+          </div>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="bg-white/20 text-white text-xs px-2 py-1 rounded">防犯対策指導 1万室超</span>
+            <span class="bg-white/20 text-white text-xs px-2 py-1 rounded">相談実績 1,200件超</span>
+            <button class="modal-close text-white/80 hover:text-white transition-colors ml-2" aria-label="閉じる">
+              <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 space-y-8">
+
+        <!-- セクション1：こんな不安を抱えていませんか？ -->
+        <section>
+          <div class="space-y-3 mb-4">
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0"></i>
+              <span class="text-gray-700">「最近、近所で空き巣が増えている気がする…」</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0"></i>
+              <span class="text-gray-700">「子どもや家族が犯罪に巻き込まれないか心配…」</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0"></i>
+              <span class="text-gray-700">「自宅の防犯対策が本当に効果的なのか分からない…」</span>
+            </div>
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <i data-lucide="check-circle" class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0"></i>
+              <span class="text-gray-700">「賃貸物件の防犯対策が不十分で入居者が減っている…」</span>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+            <p class="text-amber-900 font-medium text-sm">
+              一般の『防犯対策の常識』の多くは、<span class="underline">実際の犯罪者の行動パターンとはズレています。</span>
+            </p>
+          </div>
+        </section>
+
+        <!-- セクション2：3つの防御法 -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4">
+            犯罪者1,000人の証言から導き出した<br class="sm:hidden">"本当に効く"3つの防御法
+          </h4>
+          <p class="text-sm text-gray-600 mb-4">
+            私が40年の経験から導き出した本当に効果的な防犯対策は、実はシンプルです。高額な防犯システムを導入するよりも効果的で、新築住宅価格の2%以下の費用で実現できます。
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <!-- カード1 -->
+            <div class="bg-gray-50 rounded-xl p-4 border-l-4 border-red-400">
+              <div class="text-center mb-3">
+                <span class="inline-block w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">🚫</span>
+              </div>
+              <h5 class="font-bold text-primary-800 text-center mb-2 text-sm">「時間がかかる」と<br>思わせる</h5>
+              <p class="text-xs text-gray-600">
+                犯罪者が最も恐れるのは「捕まること」。5分以上かかると感じたら70%は諦めます。玄関に鍵を2つ。窓対策がなぜ効果的か、その理由と正しい実践法をお教えします。
+              </p>
+            </div>
+
+            <!-- カード2 -->
+            <div class="bg-gray-50 rounded-xl p-4 border-l-4 border-red-400">
+              <div class="text-center mb-3">
+                <span class="inline-block w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">👁️</span>
+              </div>
+              <h5 class="font-bold text-primary-800 text-center mb-2 text-sm">「見られている」と<br>感じさせる</h5>
+              <p class="text-xs text-gray-600">
+                多くの泥棒は「死角」を探します。意外にも低い塀や植栽の選び方の方が安全な理由と、費用をかけずに実践できる対策をアドバイスします。
+              </p>
+            </div>
+
+            <!-- カード3 -->
+            <div class="bg-gray-50 rounded-xl p-4 border-l-4 border-red-400">
+              <div class="text-center mb-3">
+                <span class="inline-block w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-2xl">😤</span>
+              </div>
+              <h5 class="font-bold text-primary-800 text-center mb-2 text-sm">「面倒な家」と<br>アピール</h5>
+              <p class="text-xs text-gray-600">
+                ちょっとした工夫で、犯罪者に「この家は面倒だ」と思わせる方法をご紹介します。コストパフォーマンス重視の対策を提案します。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- セクション3：お客様の声 -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="message-square-quote" class="w-5 h-5 text-primary-500"></i>
+            実際に相談された方々の声
+          </h4>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <!-- 声1 -->
+            <div class="bg-white border border-gray-200 rounded-xl p-4">
+              <p class="text-sm text-gray-700 italic mb-3">
+                「30万円の防犯システムを勧められていましたが、折元さんのアドバイスで15万円の対策で済みました。しかも安心感は絶大です！」
+              </p>
+              <p class="text-xs text-gray-500 text-right">—東京都 S.K様（40代・会社員）</p>
+            </div>
+
+            <!-- 声2 -->
+            <div class="bg-white border border-gray-200 rounded-xl p-4">
+              <p class="text-sm text-gray-700 italic mb-3">
+                「賃貸物件のオーナーですが、防犯対策を施したところ、入居率も上がりました。コストパフォーマンスは抜群です。」
+              </p>
+              <p class="text-xs text-gray-500 text-right">—福岡県 Y.N様（50代・不動産）</p>
+            </div>
+
+            <!-- 声3 -->
+            <div class="bg-white border border-gray-200 rounded-xl p-4">
+              <p class="text-sm text-gray-700 italic mb-3">
+                「マンションの1階で不安を感じていましたが、大家さんへの窓の対策のおかげで安心して眠れるようになりました。子供も安心して過ごせています」
+              </p>
+              <p class="text-xs text-gray-500 text-right">—大阪府 M.T様（30代・主婦）</p>
+            </div>
+
+            <!-- 声4 -->
+            <div class="bg-white border border-gray-200 rounded-xl p-4">
+              <p class="text-sm text-gray-700 italic mb-3">
+                「防犯カメラばかり検討していましたが、折元さんのアドバイスで本当に効果的な対策ができました。無駄な投資をせずに済みました。」
+              </p>
+              <p class="text-xs text-gray-500 text-right">—神奈川県 K.M様（60代・自営業）</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- セクション4：3つの価値 -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="crown" class="w-5 h-5 text-accent-500"></i>
+            無料防犯相談で得られる3つの価値
+          </h4>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <!-- 価値1 -->
+            <div class="bg-accent-50 rounded-xl p-4 text-center">
+              <div class="w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">①</div>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">プロによる<br>「あなただけの防犯弱点分析」</h5>
+              <p class="text-xs text-gray-600">
+                お住まいの間取りや環境に基づいた、完全オーダーメイドの防犯診断を実施。
+              </p>
+            </div>
+
+            <!-- 価値2 -->
+            <div class="bg-accent-50 rounded-xl p-4 text-center">
+              <div class="w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">②</div>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">「コストパフォーマンス<br>最強対策」</h5>
+              <p class="text-xs text-gray-600">
+                無駄な出費を減らしながら、最大の防犯効果を得られるプランをご提案。
+              </p>
+            </div>
+
+            <!-- 価値3 -->
+            <div class="bg-accent-50 rounded-xl p-4 text-center">
+              <div class="w-10 h-10 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">③</div>
+              <h5 class="font-bold text-primary-800 text-sm mb-2">「家族の安心」という<br>計り知れない価値</h5>
+              <p class="text-xs text-gray-600">
+                適切な防犯対策で得られる「安心感」。夜もぐっすり眠れる安心感をお届けします。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- セクション5：相談の流れ -->
+        <section>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="workflow" class="w-5 h-5 text-primary-500"></i>
+            無料相談の流れ
+          </h4>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+            <!-- STEP 1 -->
+            <div class="text-center">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold text-sm">1</div>
+              <h5 class="font-bold text-primary-800 text-xs mb-1">お問い合わせ</h5>
+              <p class="text-xs text-gray-500">フォームまたは<br>お電話でご連絡</p>
+            </div>
+
+            <!-- 矢印（PC） -->
+            <div class="hidden sm:flex items-center justify-center -mx-4">
+              <i data-lucide="chevron-right" class="w-6 h-6 text-gray-300"></i>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="text-center">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold text-sm">2</div>
+              <h5 class="font-bold text-primary-800 text-xs mb-1">ヒアリング</h5>
+              <p class="text-xs text-gray-500">電話またはリモートで<br>お悩みを伺います</p>
+            </div>
+
+            <!-- 矢印（PC） -->
+            <div class="hidden sm:flex items-center justify-center -mx-4">
+              <i data-lucide="chevron-right" class="w-6 h-6 text-gray-300"></i>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="text-center">
+              <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold text-sm">3</div>
+              <h5 class="font-bold text-primary-800 text-xs mb-1">診断・アドバイス</h5>
+              <p class="text-xs text-gray-500">犯罪者目線で弱点を分析、<br>対策をご提案</p>
+            </div>
+
+            <!-- 矢印（PC） -->
+            <div class="hidden sm:flex items-center justify-center -mx-4">
+              <i data-lucide="chevron-right" class="w-6 h-6 text-gray-300"></i>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="text-center">
+              <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold text-sm">4</div>
+              <h5 class="font-bold text-gray-500 text-xs mb-1">見積り・施工</h5>
+              <p class="text-xs text-gray-400">（ご希望の方のみ）<br>機器選定から施工まで</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- フッター（CTA） -->
+      <div class="sticky bottom-0 bg-white border-t rounded-b-2xl">
+        <!-- 緊急性テキスト -->
+        <div class="bg-red-500 text-white text-center py-3 px-4">
+          <p class="text-sm font-medium">
+            いまなら無料です。突然有料に戻すこともありますので、この機会にご利用ください。
+          </p>
+        </div>
+
+        <div class="p-4">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#contact" class="inline-flex items-center bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors duration-300 shadow-lg" onclick="closeModal(document.getElementById('modal-consultation'))">
+              <i data-lucide="mail" class="w-6 h-6 mr-2"></i>
+              今すぐ無料で相談する
+            </a>
+          </div>
+          <div class="text-center mt-3">
+            <a href="tel:072-673-1192" class="inline-flex items-center text-primary-700 hover:text-primary-900 font-medium transition-colors">
+              <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+              お電話でのご相談：072-673-1192
+            </a>
+            <p class="text-xs text-gray-500 mt-1">受付時間：平日9:00〜18:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
        JavaScript
   ======================================= -->
   <script>
@@ -843,6 +1589,12 @@
     const aboutModal = document.getElementById('about-modal');
     const orgModalBtn = document.getElementById('org-modal-btn');
     const orgModal = document.getElementById('org-modal');
+    const panicRoomModalBtn = document.getElementById('panic-room-modal-btn');
+    const panicRoomModal = document.getElementById('modal-panic-room');
+    const productsModalBtn = document.getElementById('products-modal-btn');
+    const productsModal = document.getElementById('modal-products');
+    const consultationModalBtn = document.getElementById('consultation-modal-btn');
+    const consultationModal = document.getElementById('modal-consultation');
 
     function openModal(modal) {
       modal.classList.add('active');
@@ -858,6 +1610,9 @@
 
     aboutModalBtn.addEventListener('click', () => openModal(aboutModal));
     orgModalBtn.addEventListener('click', () => openModal(orgModal));
+    panicRoomModalBtn.addEventListener('click', () => openModal(panicRoomModal));
+    productsModalBtn.addEventListener('click', () => openModal(productsModal));
+    consultationModalBtn.addEventListener('click', () => openModal(consultationModal));
 
     // モーダル閉じるボタン
     document.querySelectorAll('.modal-close').forEach(btn => {
@@ -867,7 +1622,7 @@
     });
 
     // モーダル外クリックで閉じる
-    [aboutModal, orgModal].forEach(modal => {
+    [aboutModal, orgModal, panicRoomModal, productsModal, consultationModal].forEach(modal => {
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
           closeModal(modal);
@@ -878,13 +1633,40 @@
     // ESCキーでモーダル閉じる
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        [aboutModal, orgModal].forEach(modal => {
+        [aboutModal, orgModal, panicRoomModal, productsModal, consultationModal].forEach(modal => {
           if (modal.classList.contains('active')) {
             closeModal(modal);
           }
         });
         closeMobileMenu();
       }
+    });
+
+    // アコーディオン機能
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const isOpen = item.classList.contains('open');
+
+        // 他のアコーディオンを閉じる（オプション：同時に1つだけ開く場合）
+        // item.closest('.accordion-container')?.querySelectorAll('.accordion-item.open').forEach(openItem => {
+        //   if (openItem !== item) {
+        //     openItem.classList.remove('open');
+        //     openItem.querySelector('.accordion-content').classList.add('hidden');
+        //   }
+        // });
+
+        if (isOpen) {
+          item.classList.remove('open');
+          content.classList.add('hidden');
+        } else {
+          item.classList.add('open');
+          content.classList.remove('hidden');
+          // Lucide Icons を再レンダリング
+          setTimeout(() => lucide.createIcons(), 100);
+        }
+      });
     });
   </script>
 
