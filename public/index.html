@@ -610,6 +610,8 @@
 
       <!-- 問い合わせフォーム（SSGForm） -->
       <form id="contact-form" method="POST" action="https://ssgform.com/s/wyRLSZM02cjy" class="bg-white/20 backdrop-blur rounded-2xl p-8 text-left max-w-xl mx-auto">
+        <!-- 送信後のリダイレクト先 -->
+        <input type="hidden" name="_redirect" value="https://zenboukei.com/thankyou.html">
         <!-- スパム対策：ハニーポット（ボットが自動入力するトラップ） -->
         <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
         <!-- スパム対策：タイムベース検証（フォーム読み込み時刻） -->
