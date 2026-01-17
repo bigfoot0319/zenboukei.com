@@ -125,6 +125,14 @@
       opacity: 1;
     }
 
+    /* 講演モーダル タブ */
+    .lecture-panel {
+      display: none;
+    }
+    .lecture-panel.active {
+      display: block;
+    }
+
     /* ヒーローグラデーションオーバーレイ - 右側から白くなる */
     .hero-overlay {
       background: linear-gradient(to right,
@@ -412,7 +420,7 @@
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         <!-- 講演依頼 -->
-        <a href="https://lecture.zenboukei.com" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <button id="lecture-modal-btn" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left">
           <div class="w-14 h-14 bg-accent-500 group-hover:bg-accent-600 rounded-xl flex items-center justify-center mb-6 transition-colors">
             <i data-lucide="mic" class="w-7 h-7 text-white"></i>
           </div>
@@ -424,7 +432,7 @@
             詳しく見る
             <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
           </span>
-        </a>
+        </button>
 
         <!-- 製品・サービス -->
         <button id="products-modal-btn" class="group block bg-gray-50 hover:bg-accent-50 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left">
@@ -690,7 +698,7 @@
         <div>
           <p class="text-white font-bold mb-4">できること</p>
           <ul class="space-y-2 text-sm">
-            <li><a href="https://lecture.zenboukei.com" class="hover:text-white transition-colors">講演依頼</a></li>
+            <li><button id="footer-lecture-btn" class="hover:text-white transition-colors text-left">講演依頼</button></li>
             <li><a href="https://products.zenboukei.com" class="hover:text-white transition-colors">製品・サービス</a></li>
             <li><a href="https://consultation.zenboukei.com" class="hover:text-white transition-colors">防犯相談</a></li>
             <li><a href="https://knowledge.zenboukei.com" class="hover:text-white transition-colors">防犯知識</a></li>
@@ -1538,6 +1546,212 @@
 
 
   <!-- ======================================
+       8. 講演依頼モーダル
+  ======================================= -->
+  <div id="modal-lecture" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/70">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <!-- ヘッダー（紺のグラデーション） -->
+      <div class="sticky top-0 z-10 bg-gradient-to-r from-[#1a365d] to-[#2d4a7c] text-white p-6 rounded-t-2xl">
+        <div class="flex items-start justify-between">
+          <div>
+            <h3 class="text-2xl font-bold mb-2">犯罪者の目線で見つける安心への鍵</h3>
+            <p class="text-white/80 text-sm">講演・セミナーのご依頼</p>
+          </div>
+          <button class="modal-close text-white/80 hover:text-white transition-colors" aria-label="閉じる">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 space-y-8">
+        <!-- 講師紹介セクション -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-gray-50 p-6 rounded-xl">
+          <div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-primary-500 shadow-lg">
+            <img src="/assets/images/orimoto-hiromi.jpg" alt="折元洋巳" class="w-full h-full object-cover object-top">
+          </div>
+          <div class="text-center sm:text-left">
+            <h4 class="text-xl font-bold text-primary-900 mb-1">折元 洋巳<span class="text-sm font-normal text-gray-500 ml-2">おりもと ひろみ</span></h4>
+            <p class="text-primary-600 font-medium text-sm mb-3">全防啓理事長 / 大阪府建築士事務所協会理事</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                <span>大阪府警20年、留置場看守として1,000人以上の犯罪者と対話</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                <span>13回のがん手術を乗り越えたサバイバー</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                <span>防犯専門家として20年、1,200人以上の防犯相談実績</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 講演テーマ（タブ切替式） -->
+        <div>
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="presentation" class="w-5 h-5 text-accent-500"></i>
+            講演テーマ
+          </h4>
+
+          <!-- タブナビゲーション -->
+          <div class="flex flex-wrap gap-2 mb-4 border-b border-gray-200 pb-2">
+            <button class="lecture-tab active px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-primary-500 text-white" data-tab="tab-bouhan">
+              <i data-lucide="shield" class="w-4 h-4 inline mr-1"></i>防犯対策
+            </button>
+            <button class="lecture-tab px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200" data-tab="tab-yami">
+              <i data-lucide="alert-triangle" class="w-4 h-4 inline mr-1"></i>闇バイト強盗対策
+            </button>
+            <button class="lecture-tab px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200" data-tab="tab-cancer">
+              <i data-lucide="heart" class="w-4 h-4 inline mr-1"></i>がんサバイバー講演
+            </button>
+          </div>
+
+          <!-- タブコンテンツ -->
+          <div class="lecture-tab-content">
+            <!-- 防犯対策タブ -->
+            <div id="tab-bouhan" class="lecture-panel active bg-gray-50 rounded-xl p-6">
+              <h5 class="text-lg font-bold text-primary-900 mb-3">「泥棒1,000人が教える、狙われない家の作り方」</h5>
+              <ul class="space-y-2 mb-4">
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>なぜオートロックマンションは泥棒に狙われるのか</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>5分で諦めさせる「時間稼ぎ」の技術</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>防犯カメラ神話の真実</span>
+                </li>
+              </ul>
+              <div class="flex items-center gap-2 text-sm text-primary-600">
+                <i data-lucide="users" class="w-4 h-4"></i>
+                <span class="font-medium">対象：</span>
+                <span>自治体、PTA、不動産業界、一般企業</span>
+              </div>
+            </div>
+
+            <!-- 闘バイト強盗対策タブ -->
+            <div id="tab-yami" class="lecture-panel hidden bg-gray-50 rounded-xl p-6">
+              <h5 class="text-lg font-bold text-primary-900 mb-3">「闇バイト強盗から家族を守る3つの鉄則」</h5>
+              <ul class="space-y-2 mb-4">
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>プロの泥棒と闇バイトの決定的な違い</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>低コストで作れる「簡易パニックルーム」</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>警察が来るまでの15分を生き延びる方法</span>
+                </li>
+              </ul>
+              <div class="flex items-center gap-2 text-sm text-primary-600">
+                <i data-lucide="users" class="w-4 h-4"></i>
+                <span class="font-medium">対象：</span>
+                <span>富裕層、経営者、企業の危機管理担当</span>
+              </div>
+            </div>
+
+            <!-- がんサバイバー講演タブ -->
+            <div id="tab-cancer" class="lecture-panel hidden bg-gray-50 rounded-xl p-6">
+              <h5 class="text-lg font-bold text-primary-900 mb-3">「余命8ヶ月宣告からの復活」</h5>
+              <ul class="space-y-2 mb-4">
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>13回の手術と向き合った日々</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>絶望を希望に変える生き方</span>
+                </li>
+                <li class="flex items-start gap-2 text-gray-700">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-accent-500 flex-shrink-0 mt-1"></i>
+                  <span>人生を諦めない強さの源泉</span>
+                </li>
+              </ul>
+              <div class="flex items-center gap-2 text-sm text-primary-600">
+                <i data-lucide="users" class="w-4 h-4"></i>
+                <span class="font-medium">対象：</span>
+                <span>医療・福祉関係、企業研修（メンタルヘルス）</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- メディア実績 -->
+        <div class="bg-primary-50 rounded-xl p-6">
+          <h4 class="text-lg font-bold text-primary-900 mb-4 flex items-center gap-2">
+            <i data-lucide="tv" class="w-5 h-5 text-accent-500"></i>
+            メディア出演実績
+          </h4>
+          <div class="flex flex-wrap justify-center gap-4 mb-4">
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-gray-700 font-medium text-sm">NHK</span>
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-gray-700 font-medium text-sm">フジテレビ</span>
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-gray-700 font-medium text-sm">日本テレビ</span>
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-gray-700 font-medium text-sm">テレビ朝日</span>
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-gray-700 font-medium text-sm">読売新聞</span>
+            <span class="px-4 py-2 bg-white rounded-lg shadow-sm text-gray-700 font-medium text-sm">週刊新潮</span>
+          </div>
+          <p class="text-center text-sm text-gray-600">
+            最近の出演：『ホンマでっか!?TV』『ZIP!』『す・またん!』
+          </p>
+        </div>
+
+        <!-- 講演料について -->
+        <div class="border border-gray-200 rounded-xl p-6">
+          <h4 class="text-lg font-bold text-primary-900 mb-3 flex items-center gap-2">
+            <i data-lucide="wallet" class="w-5 h-5 text-accent-500"></i>
+            講演料について
+          </h4>
+          <p class="text-gray-700 mb-4">
+            ご予算に応じて柔軟に対応いたします。まずはお気軽にご相談ください。
+          </p>
+          <ul class="text-sm text-gray-500 space-y-1">
+            <li class="flex items-center gap-2">
+              <i data-lucide="info" class="w-3 h-3"></i>
+              交通費・宿泊費は別途実費
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="info" class="w-3 h-3"></i>
+              オンライン講演も対応可能
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="info" class="w-3 h-3"></i>
+              講演時間：60分〜90分が標準（調整可）
+            </li>
+          </ul>
+        </div>
+
+        <!-- CTAセクション -->
+        <div class="bg-gradient-to-r from-accent-500 to-accent-600 rounded-xl p-6 text-center text-white">
+          <p class="mb-4 font-medium">講演のご依頼・ご相談はお気軽にどうぞ</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#contact" class="inline-flex items-center bg-white text-accent-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition-colors duration-300 shadow-lg" onclick="closeModal(document.getElementById('modal-lecture'))">
+              <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+              講演のご相談・お問い合わせ
+            </a>
+          </div>
+          <div class="mt-4">
+            <a href="tel:072-673-1192" class="inline-flex items-center text-white/90 hover:text-white font-medium transition-colors">
+              <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+              072-673-1192
+            </a>
+            <p class="text-xs text-white/70 mt-1">受付時間：平日9:00〜18:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
        JavaScript
   ======================================= -->
   <script>
@@ -1595,6 +1809,8 @@
     const productsModal = document.getElementById('modal-products');
     const consultationModalBtn = document.getElementById('consultation-modal-btn');
     const consultationModal = document.getElementById('modal-consultation');
+    const lectureModalBtn = document.getElementById('lecture-modal-btn');
+    const lectureModal = document.getElementById('modal-lecture');
 
     function openModal(modal) {
       modal.classList.add('active');
@@ -1613,6 +1829,8 @@
     panicRoomModalBtn.addEventListener('click', () => openModal(panicRoomModal));
     productsModalBtn.addEventListener('click', () => openModal(productsModal));
     consultationModalBtn.addEventListener('click', () => openModal(consultationModal));
+    lectureModalBtn.addEventListener('click', () => openModal(lectureModal));
+    document.getElementById('footer-lecture-btn').addEventListener('click', () => openModal(lectureModal));
 
     // モーダル閉じるボタン
     document.querySelectorAll('.modal-close').forEach(btn => {
@@ -1622,7 +1840,7 @@
     });
 
     // モーダル外クリックで閉じる
-    [aboutModal, orgModal, panicRoomModal, productsModal, consultationModal].forEach(modal => {
+    [aboutModal, orgModal, panicRoomModal, productsModal, consultationModal, lectureModal].forEach(modal => {
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
           closeModal(modal);
@@ -1633,13 +1851,35 @@
     // ESCキーでモーダル閉じる
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        [aboutModal, orgModal, panicRoomModal, productsModal, consultationModal].forEach(modal => {
+        [aboutModal, orgModal, panicRoomModal, productsModal, consultationModal, lectureModal].forEach(modal => {
           if (modal.classList.contains('active')) {
             closeModal(modal);
           }
         });
         closeMobileMenu();
       }
+    });
+
+    // 講演モーダル タブ切替機能
+    document.querySelectorAll('.lecture-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // タブのアクティブ状態を切り替え
+        document.querySelectorAll('.lecture-tab').forEach(t => {
+          t.classList.remove('active', 'bg-primary-500', 'text-white');
+          t.classList.add('bg-gray-100', 'text-gray-600');
+        });
+        tab.classList.add('active', 'bg-primary-500', 'text-white');
+        tab.classList.remove('bg-gray-100', 'text-gray-600');
+
+        // パネルの表示を切り替え
+        const targetId = tab.dataset.tab;
+        document.querySelectorAll('.lecture-panel').forEach(panel => {
+          panel.classList.remove('active');
+          panel.classList.add('hidden');
+        });
+        document.getElementById(targetId).classList.add('active');
+        document.getElementById(targetId).classList.remove('hidden');
+      });
     });
 
     // アコーディオン機能
