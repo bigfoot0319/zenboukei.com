@@ -125,9 +125,20 @@
       opacity: 1;
     }
 
-    /* ヒーローグラデーションオーバーレイ - 明るめ */
+    /* ヒーローグラデーションオーバーレイ - 右側から白くなる */
     .hero-overlay {
-      background: linear-gradient(135deg, rgba(30, 58, 95, 0.5) 0%, rgba(14, 165, 233, 0.3) 100%);
+      background: linear-gradient(to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.7) 60%,
+        rgba(255, 255, 255, 0.85) 100%);
+    }
+
+    /* ヒーローテキスト用シャドウ - 紺色文字に白い影 */
+    .hero-text-shadow-light {
+      text-shadow:
+        0 2px 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6);
     }
   </style>
 </head>
@@ -200,22 +211,23 @@
 
     <!-- コンテンツ - 右側配置 -->
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-end">
-      <div class="text-right max-w-xl lg:max-w-2xl">
-        <p class="text-primary-300 text-xs sm:text-sm font-medium tracking-wider mb-3 animate__animated animate__fadeInDown">
+      <!-- 白系の半透明背景ボックス -->
+      <div class="text-right max-w-xl lg:max-w-2xl p-6 sm:p-8 lg:p-10">
+        <p class="text-gray-700 text-xs sm:text-sm font-medium tracking-wider mb-3 animate__animated animate__fadeInDown hero-text-shadow-light">
           一般社団法人 全国防犯啓蒙推進機構
         </p>
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 animate__animated animate__fadeInUp">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 animate__animated animate__fadeInUp hero-text-shadow-light" style="color: #1a365d;">
           犯罪者の視点で考え、<br>命を守る。<br>
-          <span class="text-primary-300">その先の、本当の安心へ</span>
+          <span style="color: #dd6b20;">その先の、本当の安心へ</span>
         </h1>
-        <p class="text-gray-200 text-sm sm:text-base md:text-lg mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+        <p class="text-gray-700 text-sm sm:text-base md:text-lg mb-8 animate__animated animate__fadeInUp animate__delay-1s hero-text-shadow-light">
           1,000人の犯罪者の本音を熟知した<br>防犯専門家・折元洋巳
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-end animate__animated animate__fadeInUp animate__delay-1s">
           <a href="#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg">
             お問い合わせ
           </a>
-          <a href="#services" class="bg-white/10 hover:bg-white/20 backdrop-blur text-white border border-white/30 px-6 py-3 rounded-full font-medium transition-all duration-300">
+          <a href="#services" class="border-2 border-dark-800 text-dark-800 hover:bg-dark-800 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300">
             サービスを見る
           </a>
         </div>
@@ -224,7 +236,7 @@
 
     <!-- スクロールインジケーター -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <a href="#about" class="text-white/70 hover:text-white transition-colors">
+      <a href="#about" class="text-gray-500 hover:text-gray-700 transition-colors">
         <i data-lucide="chevron-down" class="w-8 h-8"></i>
       </a>
     </div>
@@ -285,15 +297,11 @@
           <ul class="space-y-3 text-gray-700 mb-8">
             <li class="flex items-start">
               <i data-lucide="check-circle" class="w-5 h-5 text-accent-500 mr-3 mt-0.5 flex-shrink-0"></i>
-              <span>元大阪府警 警察官（約20年）、留置場看守として勤務</span>
+              <span>元大阪府警 警察官（19年半）、留置場看守として勤務</span>
             </li>
             <li class="flex items-start">
               <i data-lucide="check-circle" class="w-5 h-5 text-accent-500 mr-3 mt-0.5 flex-shrink-0"></i>
               <span>13回のがん手術を乗り越えたサバイバー</span>
-            </li>
-            <li class="flex items-start">
-              <i data-lucide="check-circle" class="w-5 h-5 text-accent-500 mr-3 mt-0.5 flex-shrink-0"></i>
-              <span>著書「留置場日記」Amazonベストセラー1位獲得</span>
             </li>
           </ul>
 
@@ -718,7 +726,7 @@
           <ul class="text-gray-700 space-y-2 text-sm">
             <li>・1,200人以上の防犯相談実績</li>
             <li>・10,000室以上の防犯対策を指導（主に賃貸物件）</li>
-            <li>・著書「留置場日記」Amazonベストセラー1位</li>
+            <li>・著書「がんとの壮絶バトル13回」Amazonベストセラー1位</li>
             <li>・「ホンマでっか!?TV」「林修の今でしょ！講座」など多数のTV出演</li>
           </ul>
         </div>
@@ -727,7 +735,6 @@
           <ul class="text-gray-700 space-y-2 text-sm">
             <li>・泥棒の目から見た防犯対策</li>
             <li>・高付加価値賃貸物件のための防犯対策</li>
-            <li>・絶望を希望に変える生き方（がんサバイバーとして）</li>
           </ul>
         </div>
       </div>
