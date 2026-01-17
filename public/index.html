@@ -686,7 +686,7 @@
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <!-- 団体情報 -->
         <div>
-          <p class="text-white font-bold text-lg mb-4">一般社団法人 全国防犯啓蒙推進機構</p>
+          <a href="#hero" class="text-white font-bold text-lg mb-4 block hover:text-accent-300 transition-colors">一般社団法人 全国防犯啓蒙推進機構</a>
           <address class="not-italic text-sm space-y-2">
             <p>〒569-0086</p>
             <p>大阪府高槻市松原町2番6号<br>高槻英和ビル2階</p>
@@ -700,9 +700,10 @@
           <p class="text-white font-bold mb-4">できること</p>
           <ul class="space-y-2 text-sm">
             <li><button id="footer-lecture-btn" class="hover:text-white transition-colors text-left">講演依頼</button></li>
-            <li><a href="https://products.zenboukei.com" class="hover:text-white transition-colors">製品・サービス</a></li>
-            <li><a href="https://consultation.zenboukei.com" class="hover:text-white transition-colors">防犯相談</a></li>
-            <li><a href="https://knowledge.zenboukei.com" class="hover:text-white transition-colors">防犯知識</a></li>
+            <li><button id="footer-products-btn" class="hover:text-white transition-colors text-left">製品・サービス</button></li>
+            <li><button id="footer-panic-room-btn" class="hover:text-white transition-colors text-left">簡易パニックルーム</button></li>
+            <li><button id="footer-consultation-btn" class="hover:text-white transition-colors text-left">防犯相談</button></li>
+            <li><a href="https://knowledge.zenboukei.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">防犯知識</a></li>
             <li><a href="https://note.com/zenboukei" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">コラム</a></li>
           </ul>
         </div>
@@ -1843,6 +1844,9 @@
     consultationModalBtn.addEventListener('click', () => openModal(consultationModal));
     lectureModalBtn.addEventListener('click', () => openModal(lectureModal));
     document.getElementById('footer-lecture-btn').addEventListener('click', () => openModal(lectureModal));
+    document.getElementById('footer-products-btn').addEventListener('click', () => openModal(productsModal));
+    document.getElementById('footer-panic-room-btn').addEventListener('click', () => openModal(panicRoomModal));
+    document.getElementById('footer-consultation-btn').addEventListener('click', () => openModal(consultationModal));
 
     // モーダル閉じるボタン
     document.querySelectorAll('.modal-close').forEach(btn => {
