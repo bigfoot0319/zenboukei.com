@@ -1,0 +1,39 @@
+# 旧WordPressサイトからのリダイレクト設定
+# すべてトップページへ301リダイレクト
+
+# WordPress関連パス
+/wp-admin/* / 301
+/wp-content/* / 301
+/wp-includes/* / 301
+
+# 旧ページ（末尾スラッシュあり）
+/media/ / 301
+/overview/ / 301
+/boardmember/ / 301
+/study/ / 301
+/thief/ / 301
+/crime_prevention/ / 301
+/access/ / 301
+/request_for_appearance/ / 301
+/contact/ / 301
+/lecture/ / 301
+/individualconsulting/ / 301
+/greeting/ / 301
+/news/ / 301
+/active/ / 301
+
+# 旧ページ（末尾スラッシュなし）
+/media / 301
+/overview / 301
+/boardmember / 301
+/study / 301
+/thief / 301
+/crime_prevention / 301
+/access / 301
+/request_for_appearance / 301
+/contact / 301
+/lecture / 301
+/individualconsulting / 301
+/greeting / 301
+/news / 301
+/active / 301
