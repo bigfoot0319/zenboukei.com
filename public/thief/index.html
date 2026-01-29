@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元警察官が語る！泥棒の目線｜全防啓</title>
+  <meta name="description" content="大阪府警20年、留置場看守として1,000人以上の犯罪者と対話した折元洋巳が、泥棒の心理・手口を元に本当に効果的な防犯対策を解説。">
+  <meta name="keywords" content="泥棒,防犯対策,空き巣,侵入犯罪,犯罪者の心理,防犯専門家,折元洋巳,全防啓">
+
+  <!-- OGP -->
+  <meta property="og:title" content="元警察官が語る！泥棒の目線｜全防啓">
+  <meta property="og:description" content="大阪府警20年、留置場看守として1,000人以上の犯罪者と対話した折元洋巳が、泥棒の心理・手口を元に本当に効果的な防犯対策を解説。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zenboukei.com/thief/">
+  <meta property="og:image" content="https://zenboukei.com/assets/images/hero-header.jpg">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hiromi_orimoto">
+  <meta name="twitter:image" content="https://zenboukei.com/assets/images/hero-header.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* 全防啓ブランドカラー - シアンブルー系 */
+            primary: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#00b4d8',  /* ロゴのメインカラー */
+              600: '#0096c7',
+              700: '#0077b6',
+              800: '#005f8c',
+              900: '#023e58',
+            },
+            /* アクセントカラー - ゴールド/アンバー（信頼・品質・プレミアム感） */
+            accent: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            /* ダークカラー - 明るめのネイビー */
+            dark: {
+              700: '#1e40af',
+              800: '#1e3a5f',
+              900: '#1e3a8a',
+              950: '#172554',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts - Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* スムーススクロール */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ナビゲーション */
+    .nav-transparent {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-transparent .nav-link {
+      color: #0f2937;
+    }
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-scrolled .nav-link {
+      color: #0f2937;
+    }
+
+    /* モバイルメニュー */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* 記事コンテンツのスタイル */
+    .article-content h2 {
+      color: #00b4d8;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #00b4d8;
+    }
+
+    .article-content h3 {
+      color: #023e58;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .article-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.9;
+    }
+
+    .article-content ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+      line-height: 1.8;
+    }
+
+    /* 引用・エピソードボックス */
+    .episode-box {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 4px solid #00b4d8;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+    .episode-box p {
+      margin-bottom: 0.75rem;
+    }
+
+    .episode-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 重要ポイントボックス */
+    .key-point {
+      background: #fffbeb;
+      border: 1px solid #fbbf24;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+    }
+
+    .key-point-title {
+      color: #b45309;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+  <!-- ======================================
+       ナビゲーション
+  ======================================= -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-transparent transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- ロゴ -->
+        <a href="/" class="nav-logo transition-all duration-300">
+          <img src="/assets/images/logo-zenboukei.png" alt="全防啓 - 一般社団法人 全国防犯啓蒙推進機構" class="h-10 sm:h-12 w-auto">
+        </a>
+
+        <!-- デスクトップメニュー -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/#about" class="nav-link hover:text-primary-500 transition-colors duration-300">折元洋巳について</a>
+          <a href="/#organization" class="nav-link hover:text-primary-500 transition-colors duration-300">全防啓とは</a>
+          <a href="/#services" class="nav-link hover:text-primary-500 transition-colors duration-300">できること</a>
+          <a href="/#media" class="nav-link hover:text-primary-500 transition-colors duration-300">メディア</a>
+          <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#06C755] hover:bg-[#05b04c] text-white px-4 py-2 rounded-full font-medium transition-colors duration-300">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINE登録
+          </a>
+          <a href="/#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-full font-medium transition-colors duration-300">
+            お問い合わせ
+          </a>
+        </div>
+
+        <!-- モバイルメニューボタン -->
+        <button id="mobile-menu-btn" class="md:hidden text-dark-900 p-2" aria-label="メニューを開く">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- モバイルメニュー -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-dark-900 z-50 p-6">
+      <button id="mobile-menu-close" class="absolute top-6 right-6 text-white" aria-label="メニューを閉じる">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div class="mt-16 space-y-6">
+        <a href="/#about" class="block text-white text-lg hover:text-primary-300 transition-colors">折元洋巳について</a>
+        <a href="/#organization" class="block text-white text-lg hover:text-primary-300 transition-colors">全防啓とは</a>
+        <a href="/#services" class="block text-white text-lg hover:text-primary-300 transition-colors">できること</a>
+        <a href="/#media" class="block text-white text-lg hover:text-primary-300 transition-colors">メディア</a>
+        <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-[#06C755] hover:bg-[#05b04c] text-white px-5 py-3 rounded-full font-medium transition-colors mt-8">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINE登録
+        </a>
+        <a href="/#contact" class="block bg-accent-500 hover:bg-accent-600 text-white px-5 py-3 rounded-full font-medium text-center transition-colors mt-4">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- モバイルメニュー オーバーレイ -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+
+  <!-- ======================================
+       メインコンテンツ
+  ======================================= -->
+  <main class="pt-24 pb-16">
+    <!-- 記事ヘッダー -->
+    <header class="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-12 sm:py-16">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <p class="text-primary-200 text-sm mb-3">防犯コラム</p>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4 animate__animated animate__fadeInUp">
+          元警察官が語る！<br class="sm:hidden">泥棒の目線
+        </h1>
+        <p class="text-primary-100 text-sm sm:text-base">
+          大阪府警20年、1,000人以上の犯罪者から聞いた本当の話
+        </p>
+        <div class="flex items-center gap-3 mt-6 text-sm text-primary-200">
+          <span>著者：折元洋巳</span>
+          <span>｜</span>
+          <span>一般社団法人 全国防犯啓蒙推進機構</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 記事本文 -->
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12 article-content">
+
+      <!-- 導入 -->
+      <section>
+        <h2>日本人の「防犯常識」は非常識</h2>
+        <p>
+          私は大阪府警で約20年間勤務し、留置場の看守として1,000人以上の犯罪者と対話してきました。
+          泥棒、強盗、詐欺師...あらゆる犯罪者たちから、彼らの本音や手口を直接聞いてきたのです。
+        </p>
+        <p>
+          その経験から断言できることがあります。<strong>多くの日本人が信じている「防犯の常識」は、実は犯罪者から見ると的外れなものが多い</strong>ということです。
+        </p>
+        <p>
+          本当に効果的な防犯対策とは何か？それは「犯罪者の視点」で考えることから始まります。
+          泥棒がどう考え、何を見て、どう行動するのか。それを知れば、自ずと正しい防犯対策が見えてきます。
+        </p>
+      </section>
+
+      <!-- 泥棒の思考パターン -->
+      <section>
+        <h2>泥棒が一番大切にしていること</h2>
+        <p>
+          泥棒にとって、最も重要なことは何でしょうか？
+          お金？宝石？高価な品物？
+        </p>
+        <p>
+          いいえ、違います。
+        </p>
+
+        <div class="key-point">
+          <p class="key-point-title">
+            <i data-lucide="alert-circle" class="w-5 h-5"></i>
+            泥棒が一番大切にしていること
+          </p>
+          <p class="text-lg font-bold text-gray-800 mb-0">「捕まらないこと」</p>
+        </div>
+
+        <p>
+          これが泥棒の最優先事項です。どんなに大金が手に入っても、捕まってしまったら何の意味もありません。
+          だからこそ、泥棒は常に「捕まらない方法」を考えています。
+        </p>
+
+        <h3>「入りやすい」「逃げやすい」の方程式</h3>
+        <p>
+          泥棒がターゲットを選ぶとき、必ず考えるのがこの2つの条件です：
+        </p>
+        <ul class="list-disc">
+          <li><strong>入りやすいかどうか</strong> - 侵入に時間がかかる家は避ける</li>
+          <li><strong>逃げやすいかどうか</strong> - 逃走経路が確保できない家は避ける</li>
+        </ul>
+        <p>
+          この2つの条件を満たさない家は、泥棒にとって「リスクの高い物件」です。
+          リスクを冒してまで侵入する価値があるかどうか、彼らは冷静に計算しています。
+        </p>
+
+        <h3>下見で見ているポイント</h3>
+        <p>
+          泥棒は必ず「下見」をします。その時に見ているのは、主に3つです：
+        </p>
+        <ul class="list-disc">
+          <li><strong>入りやすそうか？</strong> - 窓の位置、鍵の種類、死角の有無</li>
+          <li><strong>逃げやすそうか？</strong> - 逃走経路、周囲の視線、通報されやすさ</li>
+          <li><strong>今、留守か？</strong> - 生活パターン、在宅のサイン</li>
+        </ul>
+        <p>
+          つまり、お金があるかどうかより先に、「安全に仕事ができるか」を判断しているのです。
+        </p>
+      </section>
+
+      <!-- 留置場での実話エピソード -->
+      <section>
+        <h2>留置場で聞いた、泥棒たちの本音</h2>
+        <p>
+          私が留置場で直接聞いた、泥棒たちのリアルな会話をご紹介します。
+        </p>
+
+        <h3>若い泥棒とプロの泥棒の会話</h3>
+        <div class="episode-box">
+          <p><strong>若い泥棒：</strong>「あの家、金持ちそうやったのに、全然お金なかったわ」</p>
+          <p><strong>ベテラン泥棒：</strong>「アホやな。見た目で判断したらアカンねん。入りやすいかどうかが先や。金持ってるかどうかなんて、入ってみんとわからへん」</p>
+        </div>
+        <p>
+          このやり取りが示すように、プロの泥棒は「お金がありそう」よりも「入りやすそう」を優先します。
+          見た目の豪華さは、実は泥棒にとってそれほど重要ではないのです。
+        </p>
+
+        <h3>ロレックスを盗まなかった新米の話</h3>
+        <div class="episode-box">
+          <p><strong>新米泥棒：</strong>「ロレックスの時計があったんやけど、どうせ偽物やろと思って置いてきた」</p>
+          <p><strong>ベテラン泥棒：</strong>「バカか！お前、もったいないことしたな。ホンモノやったかもしれへんやろ」</p>
+          <p><strong>新米泥棒：</strong>「えっ、でも、あんな堂々と置いてあるもんがホンモノなわけ...」</p>
+          <p><strong>ベテラン泥棒：</strong>「お前な、金持ちはそういうもんや。ホンモノを普通に置いとくんや」</p>
+        </div>
+        <p>
+          泥棒の中にも経験の差があります。しかし共通しているのは、彼らが「現場で素早く判断する」ことを求められているということです。
+          だからこそ、迷わせる仕掛けが有効なのです。
+        </p>
+
+        <h3>盗品をさばく喫茶店の話</h3>
+        <div class="episode-box">
+          <p>
+            ある泥棒から聞いた話です。
+          </p>
+          <p>
+            「阪急の○○駅を降りてな、5分くらい歩いたところに喫茶店があるんや。そこのマスターに持っていったら、だいたい買い取ってくれる。相場の3割くらいやけどな」
+          </p>
+          <p>
+            盗品を換金するルートは、私たちが想像する以上に身近なところに存在していました。
+          </p>
+        </div>
+        <p>
+          このような話は、防犯を考える上で重要なヒントを与えてくれます。
+          泥棒にとって「盗んだ後」のことも大きな問題だということです。
+          換金しにくいもの、足がつきやすいものは避けられる傾向があります。
+        </p>
+      </section>
+
+      <!-- 空振りの実態 -->
+      <section>
+        <h2>「空振り」の実態</h2>
+        <p>
+          テレビに出る防犯の専門家が「外から見てお金がありそうかわかる」と言っているのを聞いたことがあるかもしれません。
+        </p>
+        <p>
+          しかし、実際に泥棒から聞いた話は違いました。
+        </p>
+
+        <div class="key-point">
+          <p class="key-point-title">
+            <i data-lucide="target" class="w-5 h-5"></i>
+            泥棒の本音
+          </p>
+          <p class="mb-0">「泥棒家業に空振りはつきもの。入ってみないとわからへん」</p>
+        </div>
+
+        <p>
+          豪邸に入ったのに現金が全くなかった。逆に、普通の家に入ったら思わぬ大金があった。
+          そういうことは日常茶飯事なのです。
+        </p>
+        <p>
+          だからこそ泥棒は「数をこなす」戦略を取ります。
+          一軒一軒に時間をかけるより、効率よく多くの家に入ることを重視するのです。
+        </p>
+        <p>
+          これは逆に言えば、<strong>侵入に時間がかかる家は、それだけで避けられる</strong>ということを意味します。
+        </p>
+      </section>
+
+      <!-- 侵入口は2箇所だけ -->
+      <section>
+        <h2>侵入口は2箇所だけ</h2>
+        <p>
+          家への侵入口は、実はシンプルです。
+        </p>
+
+        <div class="bg-primary-50 border border-primary-200 rounded-lg p-6 my-8">
+          <p class="text-xl font-bold text-primary-800 text-center mb-4">泥棒の侵入口</p>
+          <div class="flex justify-center items-center gap-8 text-center">
+            <div>
+              <i data-lucide="door-open" class="w-12 h-12 text-primary-600 mx-auto mb-2"></i>
+              <p class="font-bold text-lg text-primary-900">扉</p>
+            </div>
+            <p class="text-2xl text-primary-400">と</p>
+            <div>
+              <i data-lucide="square" class="w-12 h-12 text-primary-600 mx-auto mb-2"></i>
+              <p class="font-bold text-lg text-primary-900">窓</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          屋根から入る？壁に穴を開ける？
+          映画ではあるかもしれませんが、現実の泥棒はそんな面倒なことはしません。
+        </p>
+        <p>
+          <strong>この2箇所だけを守れば、格段に安全・安心になります。</strong>
+        </p>
+        <p>
+          具体的には：
+        </p>
+        <ul class="list-disc">
+          <li>玄関の鍵を強化する（ピッキングに強い錠前、補助錠の設置）</li>
+          <li>窓に防犯フィルムを貼る</li>
+          <li>窓の鍵を強化する（クレセント錠の補強、補助錠の追加）</li>
+          <li>窓センサーや防犯カメラの設置</li>
+        </ul>
+        <p>
+          複雑に考える必要はありません。「扉」と「窓」に集中すればいいのです。
+        </p>
+      </section>
+
+      <!-- 5分ルール -->
+      <section>
+        <h2>5分ルール</h2>
+        <p>
+          警察庁のデータと、私が直接泥棒から聞いた話の両方が、ある重要な事実を示しています。
+        </p>
+
+        <div class="bg-accent-50 border-2 border-accent-400 rounded-lg p-6 my-8 text-center">
+          <p class="text-4xl font-bold text-accent-600 mb-2">70%</p>
+          <p class="text-lg text-gray-700">
+            <strong>侵入に5分以上かかると<br class="sm:hidden">諦める泥棒の割合</strong>
+          </p>
+        </div>
+
+        <p>
+          つまり、完璧なセキュリティは必要ありません。
+          <strong>5分間耐えられる対策</strong>があれば、大半の泥棒は諦めて立ち去るのです。
+        </p>
+        <p>
+          この「5分」を稼ぐために、何をすべきか。それが防犯対策の核心です。
+        </p>
+        <ul class="list-disc">
+          <li>ピッキングに5分以上かかる錠前</li>
+          <li>割るのに5分以上かかる窓（防犯フィルム、防犯ガラス）</li>
+          <li>5分以内に異常を通報できるシステム</li>
+        </ul>
+        <p>
+          これらを組み合わせることで、泥棒にとって「リスクの高い物件」になることができます。
+        </p>
+      </section>
+
+      <!-- CTA セクション -->
+      <section class="mt-16">
+        <!-- メインCTA: 無料レポート -->
+        <div class="bg-gradient-to-r from-primary-900 to-primary-700 rounded-2xl p-8 sm:p-10 text-white text-center">
+          <p class="text-primary-200 text-sm font-medium tracking-wider mb-2">無料レポート配布中</p>
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 border-none text-white mt-0 pb-0">
+            「犯罪者が教える、狙われる家の特徴」
+          </h2>
+          <p class="text-primary-100 mb-6">
+            LINEに登録した方へ<br>
+            ダウンロードリンクをお届けします
+          </p>
+
+          <!-- LINE登録ボタン -->
+          <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#06C755] hover:bg-[#05b04c] text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINEで受け取る
+          </a>
+        </div>
+
+        <!-- サブCTA: お問い合わせ -->
+        <div class="mt-6 text-center">
+          <p class="text-gray-600 text-sm mb-3">今すぐ専門家に相談したい方は</p>
+          <a href="/#contact" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors">
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            お問い合わせフォーム
+          </a>
+        </div>
+      </section>
+
+      <!-- 著者情報 -->
+      <section class="mt-12 border-t border-gray-200 pt-8">
+        <div class="flex items-start gap-4 sm:gap-6">
+          <img src="/assets/images/profile-orimoto.png" alt="折元洋巳" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover" loading="lazy" decoding="async">
+          <div>
+            <p class="font-bold text-lg text-gray-900">折元 洋巳</p>
+            <p class="text-sm text-gray-600 mb-2">一般社団法人 全国防犯啓蒙推進機構 理事長</p>
+            <p class="text-sm text-gray-700">
+              元大阪府警。約20年間の勤務中、留置場の看守として1,000人以上の犯罪者と対話。
+              2012年に全防啓を設立し、「犯罪者の視点」に基づく実践的な防犯対策を提唱している。
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <!-- ======================================
+       フッター
+  ======================================= -->
+  <footer class="bg-primary-900 text-primary-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- 団体情報 -->
+        <div>
+          <a href="/" class="text-white font-bold text-lg mb-4 block hover:text-accent-300 transition-colors">一般社団法人 全国防犯啓蒙推進機構</a>
+          <address class="not-italic text-sm space-y-2">
+            <p>〒569-0086</p>
+            <p>大阪府高槻市松原町2番6号<br>高槻英和ビル2階</p>
+            <p>TEL: <a href="tel:072-673-1192" class="hover:text-white transition-colors">072-673-1192</a></p>
+            <p>FAX: 072-673-3955</p>
+          </address>
+        </div>
+
+        <!-- リンク -->
+        <div>
+          <p class="text-white font-bold mb-4">できること</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/#services" class="hover:text-white transition-colors">講演依頼</a></li>
+            <li><a href="/#services" class="hover:text-white transition-colors">製品・サービス</a></li>
+            <li><a href="/#services" class="hover:text-white transition-colors">簡易パニックルーム</a></li>
+            <li><a href="/#services" class="hover:text-white transition-colors">防犯相談</a></li>
+            <li><a href="https://knowledge.zenboukei.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">防犯知識</a></li>
+            <li><a href="https://note.com/bouhan_orimoto" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">コラム</a></li>
+          </ul>
+        </div>
+
+        <!-- SNS & 法的情報 -->
+        <div>
+          <p class="text-white font-bold mb-4">フォローする</p>
+          <div class="flex gap-4 mb-6">
+            <a href="https://x.com/hiromi_orimoto" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-primary-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="X">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@bouhan_ha_orimoto" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-primary-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Threads">
+              <i data-lucide="at-sign" class="w-5 h-5"></i>
+            </a>
+            <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-[#06C755] hover:bg-[#05b04c] rounded-full flex items-center justify-center transition-colors" aria-label="LINE友だち追加">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            </a>
+          </div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/privacy.html" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+            <li><a href="/legal.html" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- コピーライト -->
+      <div class="border-t border-primary-800 pt-8 text-center text-sm">
+        <p>&copy; 2012-2025 一般社団法人 全国防犯啓蒙推進機構. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================
+       JavaScript
+  ======================================= -->
+  <script>
+    // Lucide Icons 初期化
+    lucide.createIcons();
+
+    // ナビゲーション スクロール時の背景変化
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove('nav-transparent');
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.add('nav-transparent');
+      }
+    });
+
+    // モバイルメニュー
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // モバイルメニュー内リンククリックで閉じる
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // ESCキーでメニュー閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+      }
+    });
+  </script>
+
+</body>
+</html>
