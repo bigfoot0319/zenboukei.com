@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闇バイト強盗対策｜全防啓</title>
+  <meta name="description" content="元警察官が1,000人の犯罪者から聞いた「入られても守る」新しい防犯の考え方。従来の防犯対策では闇バイト強盗は防げません。簡易パニックルームで家族の命を守る。">
+  <meta name="keywords" content="闇バイト強盗,防犯対策,パニックルーム,トクリュウ,強盗対策,全防啓,折元洋巳">
+
+  <!-- OGP -->
+  <meta property="og:title" content="闇バイト強盗対策｜全防啓">
+  <meta property="og:description" content="元警察官が1,000人の犯罪者から聞いた「入られても守る」新しい防犯の考え方。簡易パニックルームで家族の命を守る。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zenboukei.com/yami-baito/">
+  <meta property="og:image" content="https://zenboukei.com/assets/images/hero-header.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="全防啓｜一般社団法人 全国防犯啓蒙推進機構">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hiromi_orimoto">
+  <meta name="twitter:title" content="闇バイト強盗対策｜全防啓">
+  <meta name="twitter:description" content="元警察官が教える「入られても守る」新しい防犯の考え方。">
+  <meta name="twitter:image" content="https://zenboukei.com/assets/images/hero-header.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* 闇バイト強盗対策LP - 紺メイン */
+            navy: {
+              50: '#f0f4f8',
+              100: '#d9e2ec',
+              200: '#bcccdc',
+              300: '#9fb3c8',
+              400: '#829ab1',
+              500: '#627d98',
+              600: '#486581',
+              700: '#334e68',
+              800: '#243b53',
+              900: '#1a365d',
+              950: '#102a43',
+            },
+            /* アクセント - オレンジ */
+            orange: {
+              50: '#fffaf0',
+              100: '#feebc8',
+              200: '#fbd38d',
+              300: '#f6ad55',
+              400: '#ed8936',
+              500: '#dd6b20',
+              600: '#c05621',
+              700: '#9c4221',
+              800: '#7b341e',
+              900: '#652b19',
+            },
+            /* 危機感の赤 */
+            danger: {
+              50: '#fff5f5',
+              100: '#fed7d7',
+              500: '#e53e3e',
+              600: '#c53030',
+              700: '#9b2c2c',
+            },
+            /* LINE緑 */
+            line: {
+              DEFAULT: '#06C755',
+              dark: '#05b04c',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts - Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* スムーススクロール */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* 電話ボタンパルスアニメーション */
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 4px 15px rgba(237, 137, 54, 0.4);
+      }
+      50% {
+        box-shadow: 0 4px 25px rgba(237, 137, 54, 0.7);
+      }
+    }
+    .phone-pulse {
+      animation: pulse-glow 2s infinite;
+    }
+
+    /* セクション見出し下線 */
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #ed8936;
+      border-radius: 2px;
+    }
+
+    /* 比較テーブル */
+    .comparison-table th,
+    .comparison-table td {
+      border: 1px solid #e2e8f0;
+    }
+
+    /* モバイル固定CTAバー */
+    .mobile-cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* スクロールアニメーション */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* タイムライン画像 */
+    .timeline-image-container {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .timeline-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: 768px) {
+      .timeline-image-container {
+        margin: 1.5rem 0;
+      }
+      .timeline-image {
+        border-radius: 4px;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+  <!-- ======================================
+       ヘッダー（固定）
+  ======================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-navy-900 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- ロゴ -->
+      <a href="/" class="flex-shrink-0">
+        <img src="/assets/images/logo-zenboukei.png" alt="全防啓" class="h-8 sm:h-10 w-auto">
+      </a>
+
+      <!-- 電話CTA（デスクトップ） -->
+      <div class="flex items-center gap-4">
+        <div class="hidden md:block text-xs text-navy-200">
+          受付時間：平日9:00〜18:00
+        </div>
+        <a href="tel:000-0000-0000" class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 phone-pulse">
+          <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+          <span class="hidden sm:inline">000-0000-0000</span>
+          <span class="sm:hidden">電話相談</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================
+       ファーストビュー
+  ======================================= -->
+  <section id="hero" class="relative min-h-screen flex items-center bg-gradient-to-b from-navy-950 via-navy-900 to-navy-800 pt-16">
+    <!-- 背景パターン -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-16 text-center text-white">
+      <!-- バッジ -->
+      <span class="inline-block bg-orange-400 text-navy-900 font-bold px-4 py-1.5 rounded-full text-sm mb-6 animate__animated animate__fadeInDown">
+        闇バイト・トクリュウ対策
+      </span>
+
+      <!-- メインコピー -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate__animated animate__fadeInUp">
+        従来の防犯対策では、<br>
+        <span class="text-orange-400">闇バイト強盗は防げません。</span>
+      </h1>
+
+      <!-- サブコピー -->
+      <p class="text-lg sm:text-xl text-navy-200 mb-10 animate__animated animate__fadeInUp animate__delay-1s">
+        元警察官が1,000人の犯罪者から聞いた<br>
+        「入られても守る」新しい防犯の考え方
+      </p>
+
+      <!-- CTA群 -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate__animated animate__fadeInUp animate__delay-1s">
+        <!-- 電話CTA（主軸） -->
+        <a href="tel:000-0000-0000" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl phone-pulse">
+          <i data-lucide="phone" class="w-6 h-6"></i>
+          今すぐ電話で相談する
+        </a>
+        <!-- LINE CTA（サブ） -->
+        <a href="https://lin.ee/83OIdAr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-line hover:bg-line-dark text-white px-6 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで相談する
+        </a>
+      </div>
+
+      <!-- 電話番号表示 -->
+      <p class="mt-4 text-navy-300 text-sm">
+        000-0000-0000（受付時間：平日9:00〜18:00）
+      </p>
+    </div>
+
+    <!-- スクロールインジケーター -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#problem" class="text-navy-400 hover:text-white transition-colors">
+        <i data-lucide="chevron-down" class="w-8 h-8"></i>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       問題提起セクション
+  ======================================= -->
+  <section id="problem" class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-navy-900 mb-12 animate-on-scroll">
+        闇バイト強盗は、<br>
+        <span class="text-danger-600">空き巣とも、従来の強盗とも<br>「まったく別の生き物」です</span>
+      </h2>
+
+      <div class="space-y-6 text-gray-700 leading-relaxed animate-on-scroll">
+        <p class="text-lg">
+          「鍵を増やした」「防犯カメラをつけた」<br>
+          それで安心していませんか？
+        </p>
+
+        <p>
+          従来の空き巣は「面倒な家」を避けます。<br>
+          従来の強盗ですら「捕まりたくない」から、<br>
+          リスクの高い家は狙わなかった。
+        </p>
+
+        <p>
+          でも、<strong class="text-danger-600">闇バイト強盗は違う。</strong>
+        </p>
+
+        <p>
+          彼らは素人です。<br>
+          指示役に使い捨てにされる実行犯。<br>
+          <strong>「捕まりたくない」という歯止めがない。</strong>
+        </p>
+
+        <p>
+          だから、障害があっても突破しようとする。<br>
+          だから、残忍な暴力をふるう。
+        </p>
+
+        <div class="bg-danger-50 border-l-4 border-danger-500 p-6 rounded-r-lg my-8">
+          <p class="text-danger-700 font-bold text-lg">
+            「防犯カメラがあるから安心」<br>
+            「オートロックだから大丈夫」
+          </p>
+          <p class="text-danger-600 mt-2">
+            その過信が、一番危険なんです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       比較セクション（テーブル）
+  ======================================= -->
+  <section id="comparison" class="py-16 md:py-24 bg-navy-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-navy-900 mb-4 animate-on-scroll">
+        <span class="section-title">3つの犯罪者タイプを比較</span>
+      </h2>
+      <p class="text-center text-gray-600 mb-12 animate-on-scroll">
+        あなたの防犯対策、本当に「今の脅威」に対応していますか？
+      </p>
+
+      <!-- 比較テーブル（3列） -->
+      <div class="overflow-x-auto animate-on-scroll relative">
+        <!-- スクロールヒント（モバイル用） -->
+        <div class="md:hidden text-center text-sm text-gray-500 mb-2 flex items-center justify-center gap-1">
+          <i data-lucide="move-horizontal" class="w-4 h-4"></i>
+          <span>横にスクロールできます</span>
+        </div>
+        <table class="comparison-table w-full text-sm sm:text-base bg-white rounded-xl overflow-hidden shadow-lg min-w-[640px]">
+          <thead>
+            <tr class="bg-navy-900 text-white">
+              <th class="p-3 sm:p-4 text-left font-bold w-24 sm:w-28">比較項目</th>
+              <th class="p-3 sm:p-4 text-left font-bold">空き巣（泥棒）</th>
+              <th class="p-3 sm:p-4 text-left font-bold">従来の強盗</th>
+              <th class="p-3 sm:p-4 text-left font-bold bg-danger-600 relative">
+                闇バイト強盗
+                <span class="absolute -top-2 right-2 bg-danger-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">最も危険</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="p-3 sm:p-4 font-medium text-navy-800">目的</td>
+              <td class="p-3 sm:p-4 text-gray-700">盗んで逃げ切る</td>
+              <td class="p-3 sm:p-4 text-gray-700">脅して奪う</td>
+              <td class="p-3 sm:p-4 bg-danger-50 text-danger-700 font-medium">指示役の命令完遂</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="p-3 sm:p-4 font-medium text-navy-800">スキル</td>
+              <td class="p-3 sm:p-4 text-gray-700">プロ（技術がある）</td>
+              <td class="p-3 sm:p-4 text-gray-700">経験者が多い</td>
+              <td class="p-3 sm:p-4 bg-danger-50 text-danger-700 font-medium">素人（使い捨て）</td>
+            </tr>
+            <tr>
+              <td class="p-3 sm:p-4 font-medium text-navy-800">逮捕への意識</td>
+              <td class="p-3 sm:p-4 text-gray-700">絶対に避けたい</td>
+              <td class="p-3 sm:p-4 text-gray-700">できれば避けたい</td>
+              <td class="p-3 sm:p-4 bg-danger-50 text-danger-700 font-medium">織り込み済み</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="p-3 sm:p-4 font-medium text-navy-800">暴力性</td>
+              <td class="p-3 sm:p-4 text-gray-700">低い（逃げる）</td>
+              <td class="p-3 sm:p-4 text-gray-700">状況による</td>
+              <td class="p-3 sm:p-4 bg-danger-50 text-danger-700 font-medium">高い（歯止めなし）</td>
+            </tr>
+            <tr>
+              <td class="p-3 sm:p-4 font-medium text-navy-800">有効な対策</td>
+              <td class="p-3 sm:p-4 text-gray-700">侵入を困難にする</td>
+              <td class="p-3 sm:p-4 text-gray-700">侵入を困難にする</td>
+              <td class="p-3 sm:p-4 bg-danger-50 text-danger-600 font-bold">侵入されても守る対策が必須</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 補足テキスト -->
+      <div class="mt-12 space-y-6 text-gray-700 animate-on-scroll">
+        <p class="text-danger-600 font-bold text-lg">
+          闇バイト強盗は「捕まること前提」で動く。<br>
+          従来の防犯では守れません。
+        </p>
+
+        <p>
+          週刊新潮でも報道されましたが、<br>
+          指示役から実行犯への指示はこうです。
+        </p>
+
+        <div class="bg-navy-900 text-white p-6 rounded-xl">
+          <p class="text-lg italic">
+            「暗証番号を聞き出すために、まず指を1本折れ。<br>
+            もう一度聞くときに、さらに1本折れ」
+          </p>
+        </div>
+
+        <p>
+          プロの犯罪者なら、こんな残忍なことはしません。<br>
+          量刑が跳ね上がるから。<br>
+          <strong>従来の強盗ですら、ここまではしなかった。</strong>
+        </p>
+
+        <p>
+          でも素人は違う。<br>
+          現場での緊張、恐怖、パニック。<br>
+          それが過剰な暴力につながってしまう。
+        </p>
+
+        <p class="text-danger-600 font-bold text-lg">
+          素人だから、歯止めが効かない。<br>
+          これが闇バイト強盗の恐ろしさなんです。
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       解決策セクション
+  ======================================= -->
+  <section id="solution" class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-navy-900 mb-12 animate-on-scroll">
+        <span class="section-title">「入られても守る」という新しい考え方</span>
+      </h2>
+
+      <div class="space-y-6 text-gray-700 leading-relaxed animate-on-scroll">
+        <p>
+          従来の防犯対策は「入りにくくする」ことが目的でした。<br>
+          鍵を増やす、防犯フィルムを貼る。
+        </p>
+
+        <p>
+          空き巣には効果がある。<br>
+          従来の強盗にも、ある程度は効いた。
+        </p>
+
+        <p class="font-bold text-navy-900 text-lg">
+          でも闇バイト強盗には、それだけでは足りない。
+        </p>
+
+        <div class="bg-gradient-to-r from-navy-900 to-navy-800 text-white p-8 rounded-2xl my-8">
+          <p class="text-lg sm:text-xl leading-relaxed">
+            私が提唱するのは、<br>
+            <strong class="text-orange-400">「万が一侵入されても、安全に籠城できる場所を作る」</strong><br>
+            という発想の転換です。
+          </p>
+        </div>
+
+        <p class="text-xl font-bold text-navy-900 text-center">
+          名付けて<span class="text-orange-500">「簡易パニックルーム」</span>。
+        </p>
+
+        <p>
+          海外映画に出てくるような大掛かりなものではありません。<br>
+          今ある寝室を、簡単な改修で「最後の砦」にする。<br>
+          それだけで、家族を守れる確率は大きく上がります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       なぜ寝室かセクション
+  ======================================= -->
+  <section id="why-bedroom" class="py-16 md:py-24 bg-navy-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-navy-900 mb-12 animate-on-scroll">
+        <span class="section-title">なぜ「寝室」を守るのか？</span>
+      </h2>
+
+      <div class="space-y-6 text-gray-700 leading-relaxed animate-on-scroll">
+        <p>
+          闇バイト強盗の多くは、<br>
+          <strong class="text-navy-900">深夜〜早朝の就寝時間帯を狙います。</strong>
+        </p>
+
+        <p>
+          つまり、侵入されたとき<br>
+          <strong class="text-navy-900">最も長くいる場所が寝室なんです。</strong>
+        </p>
+
+        <p>
+          寝室を「最後の砦」にしておけば、<br>
+          異変に気づいた瞬間、すぐに立てこもれる。
+        </p>
+
+        <div class="bg-white border-2 border-orange-400 p-6 rounded-xl my-8">
+          <p class="text-navy-900 font-bold text-lg mb-2">
+            日本の警察は優秀です。
+          </p>
+          <p class="text-gray-700">
+            通報さえできれば、<strong class="text-orange-500">最短5分で到着する。</strong>
+          </p>
+
+          <!-- タイムライン画像 -->
+          <div class="timeline-image-container">
+            <img
+              src="./images/timeline-panic-room.jpeg"
+              alt="侵入から救助までのタイムライン：0分 異変を感知 → 1分 寝室へ避難・施錠 → 2分 緊急ボタンで110番通報 → 5〜8分 警察到着"
+              class="timeline-image"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+
+          <p class="text-navy-900 font-bold mt-4">
+            その時間を稼ぐ。<br>
+            それが「簡易パニックルーム」の役割です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       具体策セクション（5つのカード）
+  ======================================= -->
+  <section id="measures" class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-navy-900 mb-12 animate-on-scroll">
+        <span class="section-title">簡易パニックルーム 5つの構成要素</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-on-scroll">
+        <!-- カード1: 扉の強化 -->
+        <div class="bg-navy-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-navy-900 mb-3">扉の強化</h3>
+          <p class="text-gray-700">
+            室内側からしか開けられない鍵を設置。外から見て、どこに鍵があるかわからない。攻撃しようがない状態を作ります。
+          </p>
+        </div>
+
+        <!-- カード2: 窓の防犯フィルム -->
+        <div class="bg-navy-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-navy-900 mb-3">窓の防犯フィルム（350ミクロン）</h3>
+          <p class="text-gray-700">
+            通常の飛散防止フィルムの7倍の厚さ。ハンマーで叩いても簡単には貫通できません。侵入に時間をかけさせ、通報の時間を稼ぎます。
+          </p>
+        </div>
+
+        <!-- カード3: 監視カメラ＋AI -->
+        <div class="bg-navy-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-navy-900 mb-3">監視カメラ＋AI（有線式）</h3>
+          <p class="text-gray-700">
+            Wi-Fiカメラは危険です。通販で買える「Wi-Fi妨害装置」で一瞬で無効化される。有線式なら、このリスクを回避できます。寝室内のモニターで状況を確認。AI検知で不審者を即座に検出します。
+          </p>
+        </div>
+
+        <!-- カード4: 緊急ボタン＋警報ブザー -->
+        <div class="bg-navy-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+            4
+          </div>
+          <h3 class="text-xl font-bold text-navy-900 mb-3">緊急ボタン＋警報ブザー</h3>
+          <p class="text-gray-700">
+            「スマホがあるから大丈夫」は危険です。緊急時に限って、忘れる・見つからない。寝室に固定の緊急ボタンを設置。押すと外で警報が鳴り、パトライトが回る。闇バイト強盗でも、「通報された」とわかれば逃げ出す確率が高まります。
+          </p>
+        </div>
+
+        <!-- カード5: 簡易トイレ -->
+        <div class="bg-navy-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+            5
+          </div>
+          <h3 class="text-xl font-bold text-navy-900 mb-3">簡易トイレ（オプション）</h3>
+          <p class="text-gray-700">
+            一定時間の籠城に対応。トイレに行こうとした瞬間の侵入リスクも軽減。防災用としても活用できます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       権威性セクション
+  ======================================= -->
+  <section id="authority" class="py-16 md:py-24 bg-gradient-to-b from-navy-900 to-navy-800 text-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12 animate-on-scroll">
+        <span class="section-title text-white">なぜ、私が「闇バイト対策」を語れるのか</span>
+      </h2>
+
+      <!-- プロフィール -->
+      <div class="flex flex-col md:flex-row items-center gap-8 mb-12 animate-on-scroll">
+        <div class="w-32 h-32 sm:w-40 sm:h-40 bg-navy-700 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+          <!-- プレースホルダー（後から画像差し替え） -->
+          <img src="/assets/images/profile-orimoto-photo.png" alt="折元洋巳" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="text-center md:text-left">
+          <p class="text-orange-400 text-sm font-medium mb-1">一般社団法人 全国防犯啓蒙推進機構（全防啓）理事長</p>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-4">折元 洋巳<span class="text-lg font-normal text-navy-300 ml-2">（おりもと ひろみ）</span></h3>
+          <ul class="text-navy-200 space-y-1">
+            <li>・大阪府警で20年のキャリア</li>
+            <li>・留置場の看守として1,000人以上の犯罪者と対話</li>
+            <li>・「犯罪者目線の防犯」を提唱する唯一の専門家</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 本文 -->
+      <div class="space-y-6 text-navy-100 animate-on-scroll">
+        <p>
+          私はよく言うんです。
+        </p>
+
+        <div class="bg-navy-800 border-l-4 border-orange-400 p-6 rounded-r-xl">
+          <p class="text-lg italic text-white">
+            「ワインを飲んだことのないソムリエに、<br>
+            ワインを選んでもらいますか？」
+          </p>
+        </div>
+
+        <p>
+          犯罪者と話したこともない人の防犯アドバイスより、<br>
+          1,000人の犯罪者の本音を聞いた私の話を信じてほしい。
+        </p>
+
+        <div class="bg-navy-800 border-l-4 border-orange-400 p-6 rounded-r-xl">
+          <p class="text-lg italic text-white">
+            「おやっさんだけに言いますわ」
+          </p>
+        </div>
+
+        <p>
+          檻の中で彼らが語った手口や心理。<br>
+          空き巣、強盗、そして今の闇バイト強盗。<br>
+          それぞれの違いを知らずに対策しても、的外れになってしまう。
+        </p>
+
+        <p class="font-bold text-orange-400 text-lg">
+          間違った防犯常識を、私は打破したいんです。
+        </p>
+      </div>
+
+      <!-- メディア実績 -->
+      <div class="mt-16 animate-on-scroll">
+        <h3 class="text-xl font-bold text-center mb-8">メディア出演実績</h3>
+        <div class="flex flex-wrap justify-center gap-6 text-navy-300">
+          <span class="bg-navy-800 px-4 py-2 rounded-lg">NHK</span>
+          <span class="bg-navy-800 px-4 py-2 rounded-lg">フジテレビ</span>
+          <span class="bg-navy-800 px-4 py-2 rounded-lg">日本テレビ</span>
+          <span class="bg-navy-800 px-4 py-2 rounded-lg">テレビ朝日</span>
+          <span class="bg-navy-800 px-4 py-2 rounded-lg">読売新聞</span>
+          <span class="bg-navy-800 px-4 py-2 rounded-lg">週刊新潮</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       価格・導入セクション
+  ======================================= -->
+  <section id="pricing" class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-navy-900 mb-12 animate-on-scroll">
+        <span class="section-title">簡易パニックルーム 導入の目安</span>
+      </h2>
+
+      <!-- 価格テーブル -->
+      <div class="grid md:grid-cols-3 gap-6 animate-on-scroll">
+        <!-- 松（完全） -->
+        <div class="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
+          <div class="text-center mb-6">
+            <span class="text-2xl">🏯</span>
+            <h3 class="text-xl font-bold text-navy-900 mt-2">松（完全）</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            地下室、鉄扉、防弾仕様
+          </p>
+          <p class="text-2xl font-bold text-navy-900 mb-6">
+            数千万円〜
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+              完全防護
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+              大規模工事
+            </li>
+          </ul>
+        </div>
+
+        <!-- 竹（上位） -->
+        <div class="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
+          <div class="text-center mb-6">
+            <span class="text-2xl">🎋</span>
+            <h3 class="text-xl font-bold text-navy-900 mt-2">竹（上位）</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            梅＋トイレ設置（配管工事）
+          </p>
+          <p class="text-2xl font-bold text-navy-900 mb-6">
+            数百万円
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+              長時間籠城対応
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
+              配管工事あり
+            </li>
+          </ul>
+        </div>
+
+        <!-- 梅（簡易）★推奨 -->
+        <div class="bg-orange-50 rounded-2xl p-6 border-2 border-orange-400 relative">
+          <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white text-sm font-bold px-4 py-1 rounded-full">
+            ★推奨
+          </span>
+          <div class="text-center mb-6">
+            <span class="text-2xl">🛡️</span>
+            <h3 class="text-xl font-bold text-navy-900 mt-2">梅（簡易）</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">
+            扉強化＋フィルム＋カメラ＋緊急通報
+          </p>
+          <p class="text-2xl font-bold text-orange-500 mb-6">
+            100万円前後〜
+          </p>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-orange-500"></i>
+              大掛かりな工事不要
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-orange-500"></i>
+              最短1日で施工完了
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-orange-500"></i>
+              賃貸でも相談可
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 注釈 -->
+      <div class="mt-8 text-center text-sm text-gray-500 animate-on-scroll">
+        <p>※間取りや窓の数により変動します</p>
+        <p>※梅プランは大掛かりな工事不要、最短1日で施工完了</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       CTAセクション
+  ======================================= -->
+  <section id="cta" class="py-20 md:py-28 bg-gradient-to-r from-orange-500 to-orange-400 text-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">
+        まずは無料相談から
+      </h2>
+
+      <div class="space-y-4 mb-10 text-white/90 animate-on-scroll">
+        <p>「うちの寝室でもできる？」</p>
+        <p>「費用はどれくらいかかる？」</p>
+        <p>「まず何から始めればいい？」</p>
+      </div>
+
+      <p class="text-lg mb-10 animate-on-scroll">
+        そんな疑問に、元警察官が直接お答えします。<br>
+        <strong>無理な売り込みは一切しません。</strong>
+      </p>
+
+      <p class="text-xl font-bold mb-8 animate-on-scroll">
+        大切なご家族の安全のために、<br>
+        まずはお気軽にご相談ください。
+      </p>
+
+      <!-- 電話CTA（超目立つ） -->
+      <div class="animate-on-scroll">
+        <a href="tel:000-0000-0000" class="inline-flex items-center gap-3 bg-white text-orange-500 px-10 py-5 rounded-full text-xl font-bold shadow-2xl hover:scale-105 transition-transform">
+          <i data-lucide="phone" class="w-8 h-8"></i>
+          今すぐ電話で相談する
+        </a>
+        <p class="mt-4 text-sm text-white/80">
+          000-0000-0000（受付時間：平日9:00〜18:00）
+        </p>
+      </div>
+
+      <!-- LINE（サブ） -->
+      <div class="mt-10 animate-on-scroll">
+        <p class="text-sm mb-3 text-white/80">電話が難しい方は</p>
+        <a href="https://lin.ee/83OIdAr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-line hover:bg-line-dark text-white px-6 py-3 rounded-full font-bold transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで相談する
+        </a>
+        <p class="mt-2 text-xs text-white/60">24時間受付・お気軽にどうぞ</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================
+       フッター
+  ======================================= -->
+  <footer class="bg-navy-900 text-navy-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="font-bold text-white mb-2">一般社団法人 全国防犯啓蒙推進機構</p>
+      <p class="text-sm mb-6">〒569-0086 大阪府高槻市松原町2番6号 高槻英和ビル2階</p>
+      <div class="flex justify-center gap-6 mb-8">
+        <a href="/" class="text-navy-300 hover:text-white transition-colors text-sm">トップページ</a>
+        <a href="/privacy.html" class="text-navy-300 hover:text-white transition-colors text-sm">プライバシーポリシー</a>
+        <a href="/legal.html" class="text-navy-300 hover:text-white transition-colors text-sm">特定商取引法に基づく表記</a>
+      </div>
+      <p class="text-sm text-navy-400">&copy; 2026 一般社団法人 全国防犯啓蒙推進機構. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ======================================
+       モバイル固定CTAバー
+  ======================================= -->
+  <div class="mobile-cta-bar md:hidden bg-navy-900 shadow-2xl">
+    <div class="flex gap-2 px-4 py-3">
+      <a href="tel:000-0000-0000" class="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-400 to-orange-500 text-white py-3 rounded-full font-bold phone-pulse">
+        <i data-lucide="phone" class="w-5 h-5"></i>
+        電話相談
+      </a>
+      <a href="https://lin.ee/83OIdAr" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-line text-white py-3 rounded-full font-bold">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINE
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+       JavaScript
+  ======================================= -->
+  <script>
+    // Lucide Icons 初期化
+    lucide.createIcons();
+
+    // スクロールアニメーション
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // モバイルCTAバーの表示制御（フッター手前で非表示）
+    const mobileCTABar = document.querySelector('.mobile-cta-bar');
+    const footer = document.querySelector('footer');
+
+    if (mobileCTABar && footer) {
+      const footerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            mobileCTABar.style.opacity = '0';
+            mobileCTABar.style.pointerEvents = 'none';
+          } else {
+            mobileCTABar.style.opacity = '1';
+            mobileCTABar.style.pointerEvents = 'auto';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      footerObserver.observe(footer);
+    }
+  </script>
+
+</body>
+</html>
