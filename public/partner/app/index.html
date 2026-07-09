@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  診断アプリ（プレースホルダ）
+  ------------------------------------------------------------
+  ※ このファイルは仮の中身です。
+     診断アプリの本体は後日ユーザーから提供されるものに差し替えてください。
+     差し替える際は、この <html> ～ </html> をまるごと置き換えてOKです。
+  ============================================================
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- パートナー限定エリアのため検索エンジンには載せない -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>診断アプリ（準備中）｜全防啓 パートナーポータル</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#00b4d8', 600: '#0096c7', 700: '#0077b6', 900: '#023e58',
+            },
+            accent: { 500: '#f59e0b' },
+            dark: { 900: '#1e3a8a', 950: '#172554' },
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts - Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+</head>
+
+<body class="font-sans bg-gradient-to-br from-dark-950 via-primary-900 to-dark-950 min-h-screen flex items-center justify-center px-6 text-white">
+
+  <main class="text-center max-w-lg">
+    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/10 mb-6">
+      <i data-lucide="shield-check" class="w-10 h-10 text-primary-500"></i>
+    </div>
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">診断アプリ（準備中）</h1>
+    <p class="text-white/70 leading-relaxed mb-8">
+      こちらのページには防犯診断アプリが入ります。<br>
+      現在準備中です。もうしばらくお待ちください。
+    </p>
+
+    <!-- ポータルへ戻る（相対パス: 一つ上の階層 = partner トップ） -->
+    <a href="../"
+       class="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 transition-colors text-white font-bold px-6 py-3 rounded-full shadow-lg">
+      <i data-lucide="arrow-left" class="w-5 h-5"></i>
+      ポータルへ戻る
+    </a>
+  </main>
+
+  <script>
+    // Lucide アイコンの描画
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  全防啓 パートナーポータル（partner.zenboukei.com トップ）
+  ------------------------------------------------------------
+  パートナー（代理店・協力企業など）向けの限定ページ。
+  ・新商品速報   … 新商品/新サービスのお知らせ
+  ・実例紹介     … 導入事例・防犯実例
+  ・診断アプリ   … ./app/ への入口
+
+  ★コンテンツ差し替えについて★
+    「新商品速報」「実例紹介」の中身はサンプル（プレースホルダ）です。
+    各カードは <!-- CARD START --> ～ <!-- CARD END --> で囲っているので、
+    テキストを書き換えたり、カードごとコピー/削除して増減できます。
+  ============================================================
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- パートナー限定エリアのため検索エンジンには載せない -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>全防啓 パートナーポータル</title>
+  <meta name="description" content="全防啓 パートナー向けの限定ポータル。新商品速報・実例紹介・防犯診断アプリをご利用いただけます。">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* 全防啓ブランドカラー - シアンブルー系 */
+            primary: {
+              50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9',
+              400: '#22d3ee', 500: '#00b4d8', 600: '#0096c7', 700: '#0077b6',
+              800: '#005f8c', 900: '#023e58',
+            },
+            /* アクセントカラー - ゴールド/アンバー */
+            accent: {
+              50: '#fffbeb', 100: '#fef3c7', 300: '#fcd34d', 400: '#fbbf24',
+              500: '#f59e0b', 600: '#d97706', 700: '#b45309',
+            },
+            /* ダークカラー - ネイビー */
+            dark: {
+              700: '#1e40af', 800: '#1e3a5f', 900: '#1e3a8a', 950: '#172554',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts - Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* スムーススクロール */
+    html { scroll-behavior: smooth; }
+
+    /* ナビ - 初期状態は透明（Heroが濃い色なので文字は白でコントラスト確保） */
+    #nav {
+      transition: background-color .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+    }
+    /* スクロール開始後: blur + 白70% 背景、文字はダークに切替 */
+    #nav.nav-scrolled {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+    #nav.nav-scrolled .nav-link { color: #0f2937; }
+    #nav.nav-scrolled .nav-brand { color: #023e58; }
+
+    /* モバイルメニュー */
+    .mobile-menu { transform: translateX(100%); transition: transform .3s ease-in-out; }
+    .mobile-menu.open { transform: translateX(0); }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white">
+
+  <!-- ============================ ナビ ============================ -->
+  <nav id="nav" class="fixed top-0 inset-x-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <!-- ブランド -->
+      <a href="#top" class="flex items-center gap-2 nav-brand text-white font-bold">
+        <img src="/assets/images/logo-zenboukei.png" alt="全防啓ロゴ" class="h-8 w-auto" decoding="async">
+        <span class="text-sm sm:text-base">パートナーポータル</span>
+      </a>
+
+      <!-- PC ナビ -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="#news" class="nav-link text-white/90 hover:opacity-70 transition">新商品速報</a>
+        <a href="#cases" class="nav-link text-white/90 hover:opacity-70 transition">実例紹介</a>
+        <a href="./app/" class="bg-accent-500 hover:bg-accent-600 text-white font-bold px-4 py-2 rounded-full transition shadow">
+          診断アプリを開く
+        </a>
+      </div>
+
+      <!-- モバイル ハンバーガー -->
+      <button id="menuBtn" class="md:hidden text-white p-2" aria-label="メニューを開く">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- モバイルメニュー -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 z-50 h-full w-64 bg-dark-950 text-white shadow-2xl md:hidden">
+    <div class="flex justify-end p-4">
+      <button id="menuClose" class="p-2" aria-label="メニューを閉じる">
+        <i data-lucide="x" class="w-7 h-7"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-2 px-6 text-lg">
+      <a href="#news" class="mobile-link py-3 border-b border-white/10">新商品速報</a>
+      <a href="#cases" class="mobile-link py-3 border-b border-white/10">実例紹介</a>
+      <a href="./app/" class="mt-4 bg-accent-500 text-white font-bold text-center px-4 py-3 rounded-full">
+        診断アプリを開く
+      </a>
+    </nav>
+  </div>
+
+  <!-- ============================ Hero ============================ -->
+  <header id="top" class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-dark-950 via-primary-900 to-dark-950 text-white overflow-hidden">
+    <!-- 装飾用のぼかし円 -->
+    <div class="absolute -top-20 -right-16 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-10 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-6xl mx-auto px-5 pt-28 pb-16">
+      <span class="inline-flex items-center gap-2 bg-white/10 text-primary-200 text-xs font-bold px-3 py-1 rounded-full mb-5 animate__animated animate__fadeInDown">
+        <i data-lucide="lock" class="w-3.5 h-3.5"></i> PARTNER ONLY
+      </span>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-5 animate__animated animate__fadeInUp">
+        全防啓 パートナーポータル
+      </h1>
+      <p class="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mb-9 animate__animated animate__fadeInUp animate__delay-1s">
+        パートナーのみなさま向けの限定ページです。<br class="hidden sm:block">
+        新商品の最新情報・導入実例のご確認、そして防犯診断アプリをこちらからご利用いただけます。
+      </p>
+      <a href="./app/"
+         class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 transition-colors text-white font-bold px-7 py-4 rounded-full shadow-lg animate__animated animate__fadeInUp animate__delay-1s">
+        <i data-lucide="scan-search" class="w-5 h-5"></i>
+        診断アプリを開く
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================ 新商品速報 ============================ -->
+  <section id="news" class="py-20 bg-primary-50">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <p class="text-primary-600 font-bold tracking-widest text-sm mb-2">NEWS</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-dark-950">新商品速報</h2>
+        <p class="text-gray-500 mt-3">新商品・新サービスの最新情報をお届けします。</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- CARD START：ここからカード（コピー/削除で増減できます） -->
+        <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition p-7 flex flex-col">
+          <span class="self-start inline-flex items-center gap-1 bg-accent-100 text-accent-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i> 2026年7月
+          </span>
+          <h3 class="text-lg font-bold text-dark-950 mb-2">新商品タイトル（サンプル）</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            ここに新商品・新サービスの概要を記載します。特長やパートナー様向けの
+            取扱ポイントなどを簡潔にまとめてください。
+          </p>
+        </article>
+        <!-- CARD END -->
+
+        <!-- CARD START -->
+        <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition p-7 flex flex-col">
+          <span class="self-start inline-flex items-center gap-1 bg-accent-100 text-accent-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i> 2026年6月
+          </span>
+          <h3 class="text-lg font-bold text-dark-950 mb-2">新サービスタイトル（サンプル）</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            ここに新サービスの概要を記載します。導入メリットや対象、開始時期などを
+            分かりやすく記載してください。
+          </p>
+        </article>
+        <!-- CARD END -->
+
+        <!-- CARD START -->
+        <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition p-7 flex flex-col">
+          <span class="self-start inline-flex items-center gap-1 bg-accent-100 text-accent-700 text-xs font-bold px-3 py-1 rounded-full mb-4">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i> 2026年5月
+          </span>
+          <h3 class="text-lg font-bold text-dark-950 mb-2">キャンペーン情報（サンプル）</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            ここにキャンペーンや価格改定などのお知らせを記載します。期間や条件を
+            明記しておくと分かりやすくなります。
+          </p>
+        </article>
+        <!-- CARD END -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 実例紹介 ============================ -->
+  <section id="cases" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <p class="text-primary-600 font-bold tracking-widest text-sm mb-2">CASE STUDY</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-dark-950">実例紹介</h2>
+        <p class="text-gray-500 mt-3">導入事例や防犯対策の実例をご紹介します。</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- CARD START -->
+        <article class="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-primary-700 to-dark-950 flex items-center justify-center">
+            <i data-lucide="home" class="w-12 h-12 text-white/70"></i>
+          </div>
+          <div class="p-6 flex flex-col">
+            <h3 class="text-lg font-bold text-dark-950 mb-2">戸建て住宅の事例（サンプル）</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              ここに導入前の課題・実施した対策・導入後の効果を記載します。
+              写真やお客様の声を添えると説得力が増します。
+            </p>
+          </div>
+        </article>
+        <!-- CARD END -->
+
+        <!-- CARD START -->
+        <article class="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-primary-600 to-primary-900 flex items-center justify-center">
+            <i data-lucide="building-2" class="w-12 h-12 text-white/70"></i>
+          </div>
+          <div class="p-6 flex flex-col">
+            <h3 class="text-lg font-bold text-dark-950 mb-2">店舗・オフィスの事例（サンプル）</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              ここに店舗やオフィスでの防犯対策の実例を記載します。
+              対象物件の規模や対策内容を具体的に書くと参考になります。
+            </p>
+          </div>
+        </article>
+        <!-- CARD END -->
+
+        <!-- CARD START -->
+        <article class="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-dark-900 to-dark-950 flex items-center justify-center">
+            <i data-lucide="shield-check" class="w-12 h-12 text-white/70"></i>
+          </div>
+          <div class="p-6 flex flex-col">
+            <h3 class="text-lg font-bold text-dark-950 mb-2">防犯診断の事例（サンプル）</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              ここに防犯診断を活用した提案・改善の実例を記載します。
+              診断アプリと組み合わせた活用シーンも紹介できます。
+            </p>
+          </div>
+        </article>
+        <!-- CARD END -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ 診断アプリを開く（CTA） ============================ -->
+  <section id="app" class="py-24 bg-gradient-to-br from-dark-950 via-primary-900 to-dark-950 text-white">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 mb-6">
+        <i data-lucide="scan-search" class="w-8 h-8 text-primary-500"></i>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">防犯診断アプリ</h2>
+      <p class="text-white/75 leading-relaxed mb-9">
+        パートナー様向けの防犯診断アプリをご利用いただけます。<br class="hidden sm:block">
+        下のボタンからアプリを開いてください。
+      </p>
+      <a href="./app/"
+         class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 transition-colors text-white font-bold px-8 py-4 rounded-full shadow-lg text-lg">
+        <i data-lucide="arrow-right-circle" class="w-6 h-6"></i>
+        診断アプリを開く
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================ フッター ============================ -->
+  <footer class="bg-dark-950 text-white/60 py-10">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <p>&copy; 2026 全防啓（ZENBOUKEI）. All rights reserved.</p>
+      <a href="https://zenboukei.com" class="inline-flex items-center gap-1 hover:text-white transition">
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+        zenboukei.com へ戻る
+      </a>
+    </div>
+  </footer>
+
+  <!-- ============================ スクリプト ============================ -->
+  <script>
+    // Lucide アイコンの描画
+    lucide.createIcons();
+
+    // ナビ: スクロール開始で背景を切り替える
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 20) nav.classList.add('nav-scrolled');
+      else nav.classList.remove('nav-scrolled');
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // モバイルメニューの開閉
+    const menu = document.getElementById('mobileMenu');
+    document.getElementById('menuBtn').addEventListener('click', () => menu.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+    document.querySelectorAll('.mobile-link, #mobileMenu a').forEach(a =>
+      a.addEventListener('click', () => menu.classList.remove('open'))
+    );
+  </script>
+</body>
+</html>
