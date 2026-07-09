@@ -1185,6 +1185,43 @@ function generateQuotePdf(){
     printWin.addEventListener('load', ()=> setTimeout(triggerPrint, 200));
   }
 }
+
+/* ---------------- URLハッシュ連携（ポータルからの遷移用） ----------------
+   partner ポータルの3ボタンから、対象タブを直接開けるようにする。
+     #diag    … 診断・提案タブ
+     #catalog … 製品カタログタブ
+     #survey  … 製品カタログタブ内の「現調・採寸」パネルを開く
+   ※タブ切替は既存の data-view / data-cat のクリック処理を再利用している。 */
+function activateTabByHash(){
+  const h = (location.hash || '').replace('#','');
+  if(!h) return;
+
+  // ハッシュ付きで来訪した場合はスプラッシュを自動的に閉じてタブを見せる
+  const splash = document.getElementById('splash');
+  if(splash) splash.classList.add('hide');
+
+  if(h === 'diag'){
+    const btn = document.querySelector('.tab-btn[data-view="diag"]');
+    if(btn) btn.click();
+  } else if(h === 'catalog'){
+    const btn = document.querySelector('.tab-btn[data-view="catalog"]');
+    if(btn) btn.click();
+  } else if(h === 'survey'){
+    // カタログタブ → 防犯フィルム分類 → 現調・採寸パネルを開く
+    const catalogBtn = document.querySelector('.tab-btn[data-view="catalog"]');
+    if(catalogBtn) catalogBtn.click();
+    const filmBtn = document.querySelector('.cat-active-target[data-cat="film"]');
+    if(filmBtn) filmBtn.click(); // renderCatalog('film') が走り #survey-panel が生成される
+    const panel = document.getElementById('survey-panel');
+    if(panel){
+      panel.classList.add('active');
+      activeSurveyId = 'film-common';
+      panel.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+}
+window.addEventListener('hashchange', activateTabByHash);
+activateTabByHash(); // 初回表示時にも適用
 </script>
 </body>
 </html>
