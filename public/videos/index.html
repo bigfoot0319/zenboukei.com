@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M01FEH29SS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M01FEH29SS');
+  </script>
+
+  <title>防犯知識動画｜全防啓（元大阪府警・折元洋巳）</title>
+  <meta name="description" content="元大阪府警19年半・留置場で1,000人の犯罪者と向き合った折元洋巳が、知られていない防犯の真実を動画でお届けします。空き巣・強盗・侵入対策の本当の知識。">
+  <meta name="keywords" content="防犯,動画,YouTube,防犯対策,全防啓,折元洋巳,空き巣,強盗,侵入対策,防犯知識">
+
+  <!-- OGP -->
+  <meta property="og:title" content="防犯知識動画｜全防啓（元大阪府警・折元洋巳）">
+  <meta property="og:description" content="犯罪者が教えてくれた、本当の防犯知識。元大阪府警の防犯専門家・折元洋巳が動画で解説します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zenboukei.com/videos/">
+  <meta property="og:image" content="https://zenboukei.com/assets/images/hero-header.jpg">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hiromi_orimoto">
+  <meta name="twitter:image" content="https://zenboukei.com/assets/images/hero-header.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* 全防啓ブランドカラー - シアンブルー系 */
+            primary: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#00b4d8',  /* ロゴのメインカラー */
+              600: '#0096c7',
+              700: '#0077b6',
+              800: '#005f8c',
+              900: '#023e58',
+            },
+            /* アクセントカラー - ゴールド/アンバー（信頼・品質・プレミアム感） */
+            accent: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            /* ダークカラー - 明るめのネイビー */
+            dark: {
+              700: '#1e40af',
+              800: '#1e3a5f',
+              900: '#1e3a8a',
+              950: '#172554',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts - Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.536.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* スムーススクロール */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ナビゲーション - 常に白背景でロゴを見やすく */
+    .nav-transparent {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-transparent .nav-link {
+      color: #0f2937;
+    }
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-scrolled .nav-link {
+      color: #0f2937;
+    }
+
+    /* モバイルメニュー */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* 動画カード - 9:16 縦型アスペクト比 */
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%; /* 16 / 9 = 縦型 */
+      overflow: hidden;
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-[#0d1b3e]">
+
+  <!-- ======================================
+       ナビゲーション（本体サイトと共通）
+  ======================================= -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-transparent transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- ロゴ -->
+        <a href="/" class="nav-logo transition-all duration-300">
+          <img src="/assets/images/logo-zenboukei.png" alt="全防啓 - 一般社団法人 全国防犯啓蒙推進機構" class="h-10 sm:h-12 w-auto">
+        </a>
+
+        <!-- デスクトップメニュー -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/#services" class="nav-link hover:text-primary-500 transition-colors duration-300">サービス</a>
+          <a href="/#media" class="nav-link hover:text-primary-500 transition-colors duration-300">実績</a>
+          <a href="/videos/" class="nav-link hover:text-primary-500 transition-colors duration-300">動画</a>
+          <a href="/#contact" class="nav-link hover:text-primary-500 transition-colors duration-300">お問い合わせ</a>
+          <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#06C755] hover:bg-[#05b04c] text-white px-4 py-2 rounded-full font-medium transition-colors duration-300">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINE登録
+          </a>
+          <a href="/#contact" class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-full font-medium transition-colors duration-300">
+            お問い合わせ
+          </a>
+        </div>
+
+        <!-- モバイルメニューボタン -->
+        <button id="mobile-menu-btn" class="md:hidden text-dark-900 p-2" aria-label="メニューを開く">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- モバイルメニュー -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-dark-900 z-50 p-6">
+      <button id="mobile-menu-close" class="absolute top-6 right-6 text-white" aria-label="メニューを閉じる">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div class="mt-16 space-y-6">
+        <a href="/#services" class="block text-white text-lg hover:text-primary-300 transition-colors">サービス</a>
+        <a href="/#media" class="block text-white text-lg hover:text-primary-300 transition-colors">実績</a>
+        <a href="/videos/" class="block text-white text-lg hover:text-primary-300 transition-colors">動画</a>
+        <a href="/#contact" class="block text-white text-lg hover:text-primary-300 transition-colors">お問い合わせ</a>
+        <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-[#06C755] hover:bg-[#05b04c] text-white px-5 py-3 rounded-full font-medium transition-colors mt-8">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINE登録
+        </a>
+        <a href="/#contact" class="block bg-accent-500 hover:bg-accent-600 text-white px-5 py-3 rounded-full font-medium text-center transition-colors mt-4">
+          お問い合わせ
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- モバイルメニュー オーバーレイ -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+  <!-- ======================================
+       ヒーローセクション
+  ======================================= -->
+  <header id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0d1b3e] overflow-hidden">
+    <!-- 装飾グラデーション -->
+    <div class="absolute inset-0 opacity-40 pointer-events-none"
+         style="background: radial-gradient(circle at 20% 20%, rgba(0,188,212,0.25), transparent 45%), radial-gradient(circle at 85% 70%, rgba(0,180,216,0.18), transparent 45%);"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="inline-block text-sm font-bold tracking-[0.3em] text-[#00BCD4] mb-6 animate__animated animate__fadeInDown">VIDEOS</p>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-6 animate__animated animate__fadeInUp">
+        犯罪者が教えてくれた、<br class="hidden sm:block">本当の防犯知識。
+      </h1>
+      <p class="text-base sm:text-lg text-primary-100/90 leading-relaxed max-w-2xl mx-auto mb-10 animate__animated animate__fadeInUp animate__delay-1s">
+        元大阪府警19年半・留置場で1,000人の犯罪者と向き合った折元洋巳が、知られていない防犯の真実をお届けします。
+      </p>
+      <a href="https://www.youtube.com/@zenboukei" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2.5 bg-[#FF0000] hover:bg-[#cc0000] text-white px-7 py-4 rounded-full font-bold text-base md:text-lg shadow-lg shadow-red-900/30 transition-colors duration-300 animate__animated animate__fadeInUp animate__delay-1s">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTubeチャンネル登録
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================
+       動画グリッドセクション
+  ======================================= -->
+  <main>
+    <section id="videos" class="bg-[#0d1b3e] py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- セクション見出し -->
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4">防犯知識シリーズ</h2>
+          <div class="w-16 h-1 bg-[#00BCD4] mx-auto rounded-full"></div>
+        </div>
+
+        <!-- 動画グリッド（PC:3列 / タブレット:2列 / モバイル:1列） -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+          <!-- 動画カード No.01 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/BCQqDtCLwVs" title="No.01 空き巣と忍び込みの違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.01</span>
+              <h3 class="text-white font-bold leading-snug">空き巣と忍び込みの違い</h3>
+            </div>
+          </article>
+
+          <!-- 動画カード No.02 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/TgUyBYkmoHQ" title="No.02 泥棒と強盗の違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.02</span>
+              <h3 class="text-white font-bold leading-snug">泥棒と強盗の違い</h3>
+            </div>
+          </article>
+
+          <!-- 動画カード No.03 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/bIHVh0A1Lbg" title="No.03 強盗とトクリュウ強盗の違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.03</span>
+              <h3 class="text-white font-bold leading-snug">強盗とトクリュウ強盗の違い</h3>
+            </div>
+          </article>
+
+          <!-- 動画カード No.04 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/nF3cC6kq5_s" title="No.04 防犯と警備の違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.04</span>
+              <h3 class="text-white font-bold leading-snug">防犯と警備の違い</h3>
+            </div>
+          </article>
+
+          <!-- 動画カード No.05 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/UxrLU351YTw" title="No.05 泥棒の侵入口は窓" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.05</span>
+              <h3 class="text-white font-bold leading-snug">泥棒の侵入口は窓</h3>
+            </div>
+          </article>
+
+          <!-- 動画カード No.06 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/gzNmfvrk_m4" title="No.06 扉の侵入対策" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.06</span>
+              <h3 class="text-white font-bold leading-snug">扉の侵入対策</h3>
+            </div>
+          </article>
+
+          <!-- 動画カード No.07 -->
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/w55-normOnQ" title="No.07 防犯カメラは防犯になるか？" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.07</span>
+              <h3 class="text-white font-bold leading-snug">防犯カメラは防犯になるか？</h3>
+            </div>
+          </article>
+
+          <!-- ============================================================
+               ▼ここに動画カードを追加する
+               新しい動画が追加されたら、以下のテンプレートをコピーして
+               ・No.（連番）
+               ・タイトル
+               ・iframe の src（https://www.youtube.com/embed/【動画ID】）
+               ・iframe の title
+               を書き換えて貼り付けてください。
+               動画IDは https://youtube.com/shorts/【動画ID】 の【動画ID】部分です。
+
+          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/【動画ID】" title="No.08 【タイトル】" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="p-5">
+              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.08</span>
+              <h3 class="text-white font-bold leading-snug">【タイトル】</h3>
+            </div>
+          </article>
+
+          ============================================================ -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================
+         CTAセクション
+    ======================================= -->
+    <section id="cta" class="bg-[#00BCD4] py-16 md:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-lg md:text-xl font-bold text-[#0d1b3e] mb-8 leading-relaxed">
+          動画で学んだ防犯知識を、あなたの職場・住まいに活かしませんか？
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <!-- 主CTA -->
+          <a href="https://zenboukei.com/#contact"
+             class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-[#0d1b3e] font-bold text-base md:text-lg px-8 py-4 rounded-full shadow-lg transition-colors duration-300 w-full sm:w-auto">
+            <i data-lucide="mic" class="w-5 h-5"></i>
+            防犯講演のお問い合わせ
+          </a>
+          <!-- 副CTA -->
+          <a href="https://partner.zenboukei.com" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[#0d1b3e] font-medium text-sm md:text-base px-6 py-3.5 rounded-full transition-colors duration-300 w-full sm:w-auto">
+            <i data-lucide="handshake" class="w-5 h-5"></i>
+            防犯パートナー募集（リフォーム・建設会社向け）
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================
+       フッター（本体サイトと共通）
+  ======================================= -->
+  <footer class="bg-primary-900 text-primary-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- 団体情報 -->
+        <div>
+          <a href="/" class="text-white font-bold text-lg mb-3 block hover:text-accent-300 transition-colors">一般社団法人 全国防犯啓蒙推進機構</a>
+          <div class="text-sm space-y-1 mb-4">
+            <p>設立：2012年</p>
+            <p>理事長：折元 洋巳（元大阪府警）</p>
+          </div>
+          <address class="not-italic text-sm space-y-1">
+            <p>〒569-0086</p>
+            <p>大阪府高槻市松原町2番6号<br>高槻英和ビル2階</p>
+            <p>TEL: <a href="tel:072-673-1192" class="hover:text-white transition-colors">072-673-1192</a></p>
+            <p>FAX: 072-673-3955</p>
+          </address>
+        </div>
+
+        <!-- リンク -->
+        <div>
+          <p class="text-white font-bold mb-4">できること</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/#contact" class="hover:text-white transition-colors">講演依頼</a></li>
+            <li><a href="/#services" class="hover:text-white transition-colors">製品・サービス</a></li>
+            <li><a href="/videos/" class="hover:text-white transition-colors">防犯知識動画</a></li>
+            <li><a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">防犯相談（LINE）</a></li>
+            <li><a href="/thief/" class="hover:text-white transition-colors">防犯知識</a></li>
+            <li><a href="https://note.com/bouhan_orimoto" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">コラム</a></li>
+          </ul>
+        </div>
+
+        <!-- SNS & 法的情報 -->
+        <div>
+          <p class="text-white font-bold mb-4">フォローする</p>
+          <div class="flex gap-4 mb-6">
+            <a href="https://www.youtube.com/@zenboukei" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-primary-800 hover:bg-[#FF0000] rounded-full flex items-center justify-center transition-colors" aria-label="YouTube">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://x.com/hiromi_orimoto" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-primary-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="X">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.threads.com/@bouhan_ha_orimoto" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-primary-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors" aria-label="Threads">
+              <i data-lucide="at-sign" class="w-5 h-5"></i>
+            </a>
+            <a href="https://lin.ee/lWbfAqk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-[#06C755] hover:bg-[#05b04c] rounded-full flex items-center justify-center transition-colors" aria-label="LINE友だち追加">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            </a>
+          </div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/privacy.html" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+            <li><a href="/legal.html" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- コピーライト -->
+      <div class="border-t border-primary-800 pt-8 text-center text-sm">
+        <p>&copy; 2012-2025 一般社団法人 全国防犯啓蒙推進機構. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================
+       JavaScript
+  ======================================= -->
+  <script>
+    // Lucide Icons 初期化
+    lucide.createIcons();
+
+    // ナビゲーション スクロール時の背景変化
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove('nav-transparent');
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.add('nav-transparent');
+      }
+    });
+
+    // モバイルメニュー
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // モバイルメニュー内リンククリックで閉じる
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  </script>
+</body>
+</html>
