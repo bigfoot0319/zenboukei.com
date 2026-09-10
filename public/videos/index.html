@@ -124,19 +124,71 @@
       transform: translateX(0);
     }
 
-    /* 動画カード - 9:16 縦型アスペクト比 */
-    .video-frame {
+    /* 動画カード - サムネイル 16:9 アスペクト比 */
+    .thumb-frame {
       position: relative;
       width: 100%;
-      padding-top: 177.78%; /* 16 / 9 = 縦型 */
+      padding-top: 56.25%; /* 9 / 16 = 横型 */
       overflow: hidden;
+      background: #0a1530;
     }
-    .video-frame iframe {
+    .thumb-frame img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      border: 0;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .video-card:hover .thumb-frame img {
+      transform: scale(1.06);
+    }
+
+    /* 再生ボタン（CSSのみ） */
+    .play-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      background: rgba(13, 27, 62, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .play-badge::before {
+      content: '';
+      margin-left: 4px;
+      border-style: solid;
+      border-width: 9px 0 9px 15px;
+      border-color: transparent transparent transparent #ffffff;
+    }
+    .video-card:hover .play-badge {
+      background-color: rgba(0, 188, 212, 0.9);
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    /* シリーズ アコーディオン */
+    .accordion-panel {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+    .accordion-panel.closed {
+      grid-template-rows: 0fr;
+    }
+    .accordion-panel > div {
+      overflow: hidden;
+      min-height: 0;
+    }
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+    .accordion-icon.closed {
+      transform: rotate(-90deg);
     }
   </style>
 </head>
@@ -224,400 +276,534 @@
   </header>
 
   <!-- ======================================
-       動画グリッドセクション
+       動画一覧セクション
   ======================================= -->
   <main>
     <section id="videos" class="bg-[#0d1b3e] py-16 md:py-24">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- セクション見出し -->
         <div class="text-center mb-12 md:mb-16">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4">防犯知識シリーズ</h2>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4">動画一覧</h2>
           <div class="w-16 h-1 bg-[#00BCD4] mx-auto rounded-full"></div>
         </div>
 
-        <!-- 動画グリッド（PC:3列 / タブレット:2列 / モバイル:1列） -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-
-          <!-- 動画カード No.01 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/BCQqDtCLwVs" title="No.01 空き巣と忍び込みの違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.01</span>
-              <h3 class="text-white font-bold leading-snug">空き巣と忍び込みの違い</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.02 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/TgUyBYkmoHQ" title="No.02 泥棒と強盗の違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.02</span>
-              <h3 class="text-white font-bold leading-snug">泥棒と強盗の違い</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.03 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/bIHVh0A1Lbg" title="No.03 強盗とトクリュウ強盗の違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.03</span>
-              <h3 class="text-white font-bold leading-snug">強盗とトクリュウ強盗の違い</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.04 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/nF3cC6kq5_s" title="No.04 防犯と警備の違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.04</span>
-              <h3 class="text-white font-bold leading-snug">防犯と警備の違い</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.05 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/UxrLU351YTw" title="No.05 泥棒の侵入口は窓" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.05</span>
-              <h3 class="text-white font-bold leading-snug">泥棒の侵入口は窓</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.06 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/gzNmfvrk_m4" title="No.06 扉の侵入対策" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.06</span>
-              <h3 class="text-white font-bold leading-snug">扉の侵入対策</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.07 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/w55-normOnQ" title="No.07 防犯カメラは防犯になるか？" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.07</span>
-              <h3 class="text-white font-bold leading-snug">防犯カメラは防犯になるか？</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.08 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/hG98OiZ3f8g" title="No.08 防犯ブザーは防犯になるか？" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.08</span>
-              <h3 class="text-white font-bold leading-snug">防犯ブザーは防犯になるか？</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.09 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/f18Umtstz0E" title="No.09 リスクマネジメントとクライシスマネジメントの違い" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.09</span>
-              <h3 class="text-white font-bold leading-snug">リスクマネジメントとクライシスマネジメントの違い</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.10 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/_ID8rVEqRRY" title="No.10 犯罪機会論を知ろう" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.10</span>
-              <h3 class="text-white font-bold leading-snug">犯罪機会論を知ろう</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.11 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/ELpJnAnc22g" title="No.11 外国人犯罪に対する考え方" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.11</span>
-              <h3 class="text-white font-bold leading-snug">外国人犯罪に対する考え方</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.12 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/5yxFay4Mpn0" title="No.12 自宅の危険な場所の見つけ方（戸建て編）" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.12</span>
-              <h3 class="text-white font-bold leading-snug">自宅の危険な場所の見つけ方（戸建て編）</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.13 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/BY3bqbZBJ9A" title="No.13 自宅の危険な場所の見つけ方（集合住宅編）" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.13</span>
-              <h3 class="text-white font-bold leading-snug">自宅の危険な場所の見つけ方（集合住宅編）</h3>
-            </div>
-          </article>
+        <div class="space-y-6">
 
           <!-- ============================================================
-               ▼ここに動画カードを追加する
-               新しい動画が追加されたら、以下のテンプレートをコピーして
-               ・No.（連番）
-               ・タイトル
-               ・iframe の src（https://www.youtube.com/embed/【動画ID】）
-               ・iframe の title
-               を書き換えて貼り付けてください。
-               動画IDは https://youtube.com/shorts/【動画ID】 の【動画ID】部分です。
-
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/【動画ID】" title="No.08 【タイトル】" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.08</span>
-              <h3 class="text-white font-bold leading-snug">【タイトル】</h3>
-            </div>
-          </article>
-
+               シリーズ：全防啓のご紹介
           ============================================================ -->
+          <div class="accordion-item rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+            <button type="button" class="accordion-toggle w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-5 text-left" aria-expanded="true" aria-controls="panel-intro">
+              <span class="flex items-center gap-3 flex-wrap">
+                <span class="text-lg sm:text-xl md:text-2xl font-black text-white">全防啓のご紹介</span>
+                <span class="inline-block text-xs font-bold text-[#0d1b3e] bg-[#00BCD4] rounded-full px-3 py-1">2本</span>
+              </span>
+              <i data-lucide="chevron-down" class="accordion-icon w-6 h-6 text-[#00BCD4] flex-shrink-0"></i>
+            </button>
+            <div id="panel-intro" class="accordion-panel">
+              <div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 px-5 sm:px-6 pb-6">
 
-        </div>
-      </div>
-    </section>
+                  <!-- 動画カード No.01 -->
+                  <a href="https://www.youtube.com/watch?v=_0dj2-vbnno" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/_0dj2-vbnno/hqdefault.jpg" alt="No.01 折元洋巳の自己紹介" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.01</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">折元洋巳の自己紹介</h3>
+                    </div>
+                  </a>
 
-    <!-- ======================================
-         犯罪の裏側シリーズ 動画グリッドセクション
-    ======================================= -->
-    <section id="videos-keihatsu" class="bg-[#0d1b3e] pb-16 md:pb-24">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- セクション見出し -->
-        <div class="text-center mb-12 md:mb-16">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4">犯罪の裏側シリーズ</h2>
-          <div class="w-16 h-1 bg-[#00BCD4] mx-auto rounded-full"></div>
-        </div>
+                  <!-- 動画カード No.02 -->
+                  <a href="https://www.youtube.com/watch?v=lNd2kFJaTgw" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/lNd2kFJaTgw/hqdefault.jpg" alt="No.02 折元式防犯診断" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.02</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">折元式防犯診断</h3>
+                    </div>
+                  </a>
 
-        <!-- 動画グリッド（PC:3列 / タブレット:2列 / モバイル:1列） -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                  <!-- ============================================================
+                       ▼ここに動画カードを追加する
+                       新しい動画が追加されたら、以下のテンプレートをコピーして
+                       ・No.（連番）
+                       ・タイトル
+                       ・a の href（https://www.youtube.com/watch?v=【動画ID】）
+                       ・img の src（https://img.youtube.com/vi/【動画ID】/hqdefault.jpg）
+                       を書き換えて貼り付けてください。
+                       動画IDは https://youtube.com/shorts/【動画ID】 の【動画ID】部分です。
+                       追加後は見出しの本数バッジ（現在「2本」）も更新してください。
 
-          <!-- 動画カード No.01 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/1bWanakqBr4" title="No.01 トクリュウ強盗" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.01</span>
-              <h3 class="text-white font-bold leading-snug">トクリュウ強盗</h3>
-            </div>
-          </article>
+                  <a href="https://www.youtube.com/watch?v=【動画ID】" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/【動画ID】/hqdefault.jpg" alt="No.03 【タイトル】" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.03</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">【タイトル】</h3>
+                    </div>
+                  </a>
 
-          <!-- 動画カード No.02 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/myZG6wPV1SA" title="No.02 旦那はサラリーマンのはずだった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.02</span>
-              <h3 class="text-white font-bold leading-snug">旦那はサラリーマンのはずだった</h3>
-            </div>
-          </article>
+                  ============================================================ -->
 
-          <!-- 動画カード No.03 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/GpGVMhsUN2s" title="No.03 連続ひったくり犯の顛末" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
             </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.03</span>
-              <h3 class="text-white font-bold leading-snug">連続ひったくり犯の顛末</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.04 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/dMzQJ3XYBF8" title="No.04 トクリュウの入口はSNSだけじゃなかった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.04</span>
-              <h3 class="text-white font-bold leading-snug">トクリュウの入口はSNSだけじゃなかった</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.05 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/0QIxfvITZeg" title="No.05 泣かせてはいけない人を泣かせてしまった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.05</span>
-              <h3 class="text-white font-bold leading-snug">泣かせてはいけない人を泣かせてしまった</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.06 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/W0IZGp3sO74" title="No.06 全てを持っていたOL" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.06</span>
-              <h3 class="text-white font-bold leading-snug">全てを持っていたOL</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.07 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/nb-dUtPExTE" title="No.07 飲酒運転（その判断が人生を狂わせる）" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.07</span>
-              <h3 class="text-white font-bold leading-snug">飲酒運転（その判断が人生を狂わせる）</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.08 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/x0nD59_3gLI" title="No.08 帰りたくても、帰れ無かった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.08</span>
-              <h3 class="text-white font-bold leading-snug">帰りたくても、帰れ無かった</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.09 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/Ko86Um8cbdA" title="No.09 返すつもりだった。" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.09</span>
-              <h3 class="text-white font-bold leading-snug">返すつもりだった。</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.10 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/IbTtcbD6ZCA" title="No.10 35,000円で口座を売った" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.10</span>
-              <h3 class="text-white font-bold leading-snug">35,000円で口座を売った</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.11 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/NGLRnkTKaxg" title="No.11 警察に協力しているはずだった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.11</span>
-              <h3 class="text-white font-bold leading-snug">警察に協力しているはずだった</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.12 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/dzV4MekpXpQ" title="No.12 拾った財布" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.12</span>
-              <h3 class="text-white font-bold leading-snug">拾った財布</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.13 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/vmpOOeVOIzg" title="No.13 匿名の書き込み" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.13</span>
-              <h3 class="text-white font-bold leading-snug">匿名の書き込み</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.14 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/nVjJISeO7ig" title="No.14 セルフレジ万引" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.14</span>
-              <h3 class="text-white font-bold leading-snug">セルフレジ万引</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.15 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/Ve1vTRGvVJM" title="No.15 放置自転車に乗ってしまった" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.15</span>
-              <h3 class="text-white font-bold leading-snug">放置自転車に乗ってしまった</h3>
-            </div>
-          </article>
-
-          <!-- 動画カード No.16 -->
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/aL0XKh4IP9E" title="No.16 酔って喧嘩" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.16</span>
-              <h3 class="text-white font-bold leading-snug">酔って喧嘩</h3>
-            </div>
-          </article>
+          </div>
 
           <!-- ============================================================
-               ▼ここに動画カードを追加する
-               新しい動画が追加されたら、以下のテンプレートをコピーして
-               ・No.（連番）
-               ・タイトル
-               ・iframe の src（https://www.youtube.com/embed/【動画ID】）
-               ・iframe の title
-               を書き換えて貼り付けてください。
-               動画IDは https://youtube.com/shorts/【動画ID】 の【動画ID】部分です。
-
-          <article class="bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/【動画ID】" title="No.02 【タイトル】" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="p-5">
-              <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1.5">No.02</span>
-              <h3 class="text-white font-bold leading-snug">【タイトル】</h3>
-            </div>
-          </article>
-
+               シリーズ：防犯知識シリーズ
           ============================================================ -->
+          <div class="accordion-item rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+            <button type="button" class="accordion-toggle w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-5 text-left" aria-expanded="true" aria-controls="panel-chishiki">
+              <span class="flex items-center gap-3 flex-wrap">
+                <span class="text-lg sm:text-xl md:text-2xl font-black text-white">防犯知識シリーズ</span>
+                <span class="inline-block text-xs font-bold text-[#0d1b3e] bg-[#00BCD4] rounded-full px-3 py-1">13本</span>
+              </span>
+              <i data-lucide="chevron-down" class="accordion-icon w-6 h-6 text-[#00BCD4] flex-shrink-0"></i>
+            </button>
+            <div id="panel-chishiki" class="accordion-panel">
+              <div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 px-5 sm:px-6 pb-6">
+
+                  <!-- 動画カード No.01 -->
+                  <a href="https://www.youtube.com/watch?v=BCQqDtCLwVs" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/BCQqDtCLwVs/hqdefault.jpg" alt="No.01 空き巣と忍び込みの違い" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.01</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">空き巣と忍び込みの違い</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.02 -->
+                  <a href="https://www.youtube.com/watch?v=TgUyBYkmoHQ" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/TgUyBYkmoHQ/hqdefault.jpg" alt="No.02 泥棒と強盗の違い" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.02</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">泥棒と強盗の違い</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.03 -->
+                  <a href="https://www.youtube.com/watch?v=bIHVh0A1Lbg" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/bIHVh0A1Lbg/hqdefault.jpg" alt="No.03 強盗とトクリュウ強盗の違い" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.03</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">強盗とトクリュウ強盗の違い</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.04 -->
+                  <a href="https://www.youtube.com/watch?v=nF3cC6kq5_s" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/nF3cC6kq5_s/hqdefault.jpg" alt="No.04 防犯と警備の違い" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.04</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">防犯と警備の違い</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.05 -->
+                  <a href="https://www.youtube.com/watch?v=UxrLU351YTw" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/UxrLU351YTw/hqdefault.jpg" alt="No.05 泥棒の侵入口は窓" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.05</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">泥棒の侵入口は窓</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.06 -->
+                  <a href="https://www.youtube.com/watch?v=gzNmfvrk_m4" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/gzNmfvrk_m4/hqdefault.jpg" alt="No.06 扉の侵入対策" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.06</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">扉の侵入対策</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.07 -->
+                  <a href="https://www.youtube.com/watch?v=w55-normOnQ" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/w55-normOnQ/hqdefault.jpg" alt="No.07 防犯カメラは防犯になるか？" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.07</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">防犯カメラは防犯になるか？</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.08 -->
+                  <a href="https://www.youtube.com/watch?v=hG98OiZ3f8g" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/hG98OiZ3f8g/hqdefault.jpg" alt="No.08 防犯ブザーは防犯になるか？" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.08</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">防犯ブザーは防犯になるか？</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.09 -->
+                  <a href="https://www.youtube.com/watch?v=f18Umtstz0E" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/f18Umtstz0E/hqdefault.jpg" alt="No.09 リスクマネジメントとクライシスマネジメントの違い" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.09</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">リスクマネジメントとクライシスマネジメントの違い</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.10 -->
+                  <a href="https://www.youtube.com/watch?v=_ID8rVEqRRY" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/_ID8rVEqRRY/hqdefault.jpg" alt="No.10 犯罪機会論を知ろう" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.10</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">犯罪機会論を知ろう</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.11 -->
+                  <a href="https://www.youtube.com/watch?v=ELpJnAnc22g" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/ELpJnAnc22g/hqdefault.jpg" alt="No.11 外国人犯罪に対する考え方" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.11</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">外国人犯罪に対する考え方</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.12 -->
+                  <a href="https://www.youtube.com/watch?v=5yxFay4Mpn0" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/5yxFay4Mpn0/hqdefault.jpg" alt="No.12 自宅の危険な場所の見つけ方（戸建て編）" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.12</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">自宅の危険な場所の見つけ方（戸建て編）</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.13 -->
+                  <a href="https://www.youtube.com/watch?v=BY3bqbZBJ9A" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/BY3bqbZBJ9A/hqdefault.jpg" alt="No.13 自宅の危険な場所の見つけ方（集合住宅編）" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.13</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">自宅の危険な場所の見つけ方（集合住宅編）</h3>
+                    </div>
+                  </a>
+
+                  <!-- ============================================================
+                       ▼ここに動画カードを追加する
+                       新しい動画が追加されたら、以下のテンプレートをコピーして
+                       ・No.（連番）
+                       ・タイトル
+                       ・a の href（https://www.youtube.com/watch?v=【動画ID】）
+                       ・img の src（https://img.youtube.com/vi/【動画ID】/hqdefault.jpg）
+                       を書き換えて貼り付けてください。
+                       動画IDは https://youtube.com/shorts/【動画ID】 の【動画ID】部分です。
+                       追加後は見出しの本数バッジ（現在「13本」）も更新してください。
+
+                  <a href="https://www.youtube.com/watch?v=【動画ID】" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/【動画ID】/hqdefault.jpg" alt="No.14 【タイトル】" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.14</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">【タイトル】</h3>
+                    </div>
+                  </a>
+
+                  ============================================================ -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================
+               シリーズ：犯罪の裏側シリーズ
+          ============================================================ -->
+          <div class="accordion-item rounded-2xl overflow-hidden bg-white/5 ring-1 ring-white/10">
+            <button type="button" class="accordion-toggle w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-5 text-left" aria-expanded="true" aria-controls="panel-uragawa">
+              <span class="flex items-center gap-3 flex-wrap">
+                <span class="text-lg sm:text-xl md:text-2xl font-black text-white">犯罪の裏側シリーズ</span>
+                <span class="inline-block text-xs font-bold text-[#0d1b3e] bg-[#00BCD4] rounded-full px-3 py-1">17本</span>
+              </span>
+              <i data-lucide="chevron-down" class="accordion-icon w-6 h-6 text-[#00BCD4] flex-shrink-0"></i>
+            </button>
+            <div id="panel-uragawa" class="accordion-panel">
+              <div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 px-5 sm:px-6 pb-6">
+
+                  <!-- 動画カード No.01 -->
+                  <a href="https://www.youtube.com/watch?v=1bWanakqBr4" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/1bWanakqBr4/hqdefault.jpg" alt="No.01 トクリュウ強盗" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.01</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">トクリュウ強盗</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.02 -->
+                  <a href="https://www.youtube.com/watch?v=myZG6wPV1SA" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/myZG6wPV1SA/hqdefault.jpg" alt="No.02 旦那はサラリーマンのはずだった" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.02</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">旦那はサラリーマンのはずだった</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.03 -->
+                  <a href="https://www.youtube.com/watch?v=GpGVMhsUN2s" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/GpGVMhsUN2s/hqdefault.jpg" alt="No.03 連続ひったくり犯の顛末" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.03</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">連続ひったくり犯の顛末</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.04 -->
+                  <a href="https://www.youtube.com/watch?v=dMzQJ3XYBF8" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/dMzQJ3XYBF8/hqdefault.jpg" alt="No.04 トクリュウの入口はSNSだけじゃなかった" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.04</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">トクリュウの入口はSNSだけじゃなかった</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.05 -->
+                  <a href="https://www.youtube.com/watch?v=0QIxfvITZeg" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/0QIxfvITZeg/hqdefault.jpg" alt="No.05 泣かせてはいけない人を泣かせてしまった" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.05</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">泣かせてはいけない人を泣かせてしまった</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.06 -->
+                  <a href="https://www.youtube.com/watch?v=W0IZGp3sO74" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/W0IZGp3sO74/hqdefault.jpg" alt="No.06 全てを持っていたOL" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.06</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">全てを持っていたOL</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.07 -->
+                  <a href="https://www.youtube.com/watch?v=nb-dUtPExTE" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/nb-dUtPExTE/hqdefault.jpg" alt="No.07 飲酒運転（その判断が人生を狂わせる）" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.07</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">飲酒運転（その判断が人生を狂わせる）</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.08 -->
+                  <a href="https://www.youtube.com/watch?v=x0nD59_3gLI" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/x0nD59_3gLI/hqdefault.jpg" alt="No.08 帰りたくても、帰れ無かった" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.08</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">帰りたくても、帰れ無かった</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.09 -->
+                  <a href="https://www.youtube.com/watch?v=Ko86Um8cbdA" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/Ko86Um8cbdA/hqdefault.jpg" alt="No.09 返すつもりだった。" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.09</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">返すつもりだった。</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.10 -->
+                  <a href="https://www.youtube.com/watch?v=IbTtcbD6ZCA" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/IbTtcbD6ZCA/hqdefault.jpg" alt="No.10 35,000円で口座を売った" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.10</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">35,000円で口座を売った</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.11 -->
+                  <a href="https://www.youtube.com/watch?v=NGLRnkTKaxg" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/NGLRnkTKaxg/hqdefault.jpg" alt="No.11 警察に協力しているはずだった" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.11</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">警察に協力しているはずだった</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.12 -->
+                  <a href="https://www.youtube.com/watch?v=dzV4MekpXpQ" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/dzV4MekpXpQ/hqdefault.jpg" alt="No.12 拾った財布" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.12</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">拾った財布</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.13 -->
+                  <a href="https://www.youtube.com/watch?v=vmpOOeVOIzg" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/vmpOOeVOIzg/hqdefault.jpg" alt="No.13 匿名の書き込み" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.13</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">匿名の書き込み</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.14 -->
+                  <a href="https://www.youtube.com/watch?v=nVjJISeO7ig" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/nVjJISeO7ig/hqdefault.jpg" alt="No.14 セルフレジ万引" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.14</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">セルフレジ万引</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.15 -->
+                  <a href="https://www.youtube.com/watch?v=Ve1vTRGvVJM" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/Ve1vTRGvVJM/hqdefault.jpg" alt="No.15 放置自転車に乗ってしまった" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.15</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">放置自転車に乗ってしまった</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.16 -->
+                  <a href="https://www.youtube.com/watch?v=aL0XKh4IP9E" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/aL0XKh4IP9E/hqdefault.jpg" alt="No.16 酔って喧嘩" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.16</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">酔って喧嘩</h3>
+                    </div>
+                  </a>
+
+                  <!-- 動画カード No.17 -->
+                  <a href="https://www.youtube.com/watch?v=ZVfpfmYdwLI" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/ZVfpfmYdwLI/hqdefault.jpg" alt="No.17 値札を張り替えた" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.17</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">値札を張り替えた</h3>
+                    </div>
+                  </a>
+
+                  <!-- ============================================================
+                       ▼ここに動画カードを追加する
+                       新しい動画が追加されたら、以下のテンプレートをコピーして
+                       ・No.（連番）
+                       ・タイトル
+                       ・a の href（https://www.youtube.com/watch?v=【動画ID】）
+                       ・img の src（https://img.youtube.com/vi/【動画ID】/hqdefault.jpg）
+                       を書き換えて貼り付けてください。
+                       動画IDは https://youtube.com/shorts/【動画ID】 の【動画ID】部分です。
+                       追加後は見出しの本数バッジ（現在「17本」）も更新してください。
+
+                  <a href="https://www.youtube.com/watch?v=【動画ID】" target="_blank" rel="noopener noreferrer" class="video-card block bg-white/5 rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-[#00BCD4]/60 transition-all duration-300 shadow-lg">
+                    <div class="thumb-frame">
+                      <img src="https://img.youtube.com/vi/【動画ID】/hqdefault.jpg" alt="No.18 【タイトル】" loading="lazy" decoding="async">
+                      <span class="play-badge"></span>
+                    </div>
+                    <div class="p-3">
+                      <span class="inline-block text-xs font-bold tracking-widest text-[#00BCD4] mb-1">No.18</span>
+                      <h3 class="text-white font-bold leading-snug text-sm sm:text-base">【タイトル】</h3>
+                    </div>
+                  </a>
+
+                  ============================================================ -->
+
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -757,6 +943,19 @@
     // モバイルメニュー内リンククリックで閉じる
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
+    });
+
+    // シリーズ アコーディオン（初期状態：全て開いた状態）
+    document.querySelectorAll('.accordion-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+        const icon = toggle.querySelector('.accordion-icon');
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('closed', isOpen);
+        icon.classList.toggle('closed', isOpen);
+      });
     });
   </script>
 </body>
